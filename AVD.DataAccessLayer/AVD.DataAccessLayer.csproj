@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D2A1FE04-7719-4C13-8909-B88B45482B73}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AVD.DataAccessLayer</RootNamespace>
+    <AssemblyName>AVD.DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.MappingAPI, Version=6.1.0.9, Culture=neutral, PublicKeyToken=7ee2e825d201459e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.MappingAPI.6.1.0.9\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TrackerEnabledDbContext, Version=3.6.1.0, Culture=neutral, PublicKeyToken=4f92af0b908c4a0a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TrackerEnabledDbContext.3.6.1\lib\net45\TrackerEnabledDbContext.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TrackerEnabledDbContext.Common, Version=3.6.1.0, Culture=neutral, PublicKeyToken=4f92af0b908c4a0a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TrackerEnabledDbContext.Common.3.6.1\lib\net45\TrackerEnabledDbContext.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseModel.cs" />
+    <Compile Include="Models\AM_LOG.cs" />
+    <Compile Include="Models\BaseSystemContext.cs" />
+    <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\Mapping\AM_LOGMap.cs" />
+    <Compile Include="Models\Mapping\ErrorMap.cs" />
+    <Compile Include="Models\Mapping\MD_AttributeMap.cs" />
+    <Compile Include="Models\Mapping\MD_AttributeTypeMap.cs" />
+    <Compile Include="Models\Mapping\MD_EntityTypeMap.cs" />
+    <Compile Include="Models\Mapping\MD_EntityType_FeatureMap.cs" />
+    <Compile Include="Models\Mapping\MD_EntityType_HierarchyMap.cs" />
+    <Compile Include="Models\Mapping\MD_FeatureMap.cs" />
+    <Compile Include="Models\Mapping\MD_MetadataVersionMap.cs" />
+    <Compile Include="Models\Mapping\MD_ModuleMap.cs" />
+    <Compile Include="Models\Mapping\MD_OptionMap.cs" />
+    <Compile Include="Models\Mapping\MD_TreeLevelMap.cs" />
+    <Compile Include="Models\Mapping\MD_TreeNodeMap.cs" />
+    <Compile Include="Models\Mapping\MD_ValidationMap.cs" />
+    <Compile Include="Models\Mapping\UM_UserMap.cs" />
+    <Compile Include="Models\MD_Attribute.cs" />
+    <Compile Include="Models\MD_AttributeType.cs" />
+    <Compile Include="Models\MD_EntityType.cs" />
+    <Compile Include="Models\MD_EntityType_Feature.cs" />
+    <Compile Include="Models\MD_EntityType_Hierarchy.cs" />
+    <Compile Include="Models\MD_Feature.cs" />
+    <Compile Include="Models\MD_MetadataVersion.cs" />
+    <Compile Include="Models\MD_Module.cs" />
+    <Compile Include="Models\MD_Option.cs" />
+    <Compile Include="Models\MD_TreeLevel.cs" />
+    <Compile Include="Models\MD_TreeNode.cs" />
+    <Compile Include="Models\MD_Validation.cs" />
+    <Compile Include="Models\UM_User.cs" />
+    <Compile Include="PagedList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EMRMRepository.cs" />
+    <Compile Include="Repositories\IDeleteRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\RepositoryFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AVD.Common\AVD.Common.csproj">
+      <Project>{d504da98-84d0-46f8-a162-7d5c7e687db6}</Project>
+      <Name>AVD.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
