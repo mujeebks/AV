@@ -9,9 +9,6 @@ namespace AVD.DataAccessLayer.Repositories
 {
     public class EmrmRepository<TEntity> : Repository<TEntity> where TEntity : BaseModel
     {
-        internal BaseSystemContext EmrmContext
-        {
-            get { return DbContext as BaseSystemContext; }
-        }
+        internal BaseSystemContext EmrmContext => DbContext as BaseSystemContext;
     }
 }

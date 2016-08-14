@@ -2,7 +2,7 @@
 
 namespace AVD.Common.Auth
 {
-    public class TEIdentityBase : IIdentity
+    public class EMRMIdentityBase : IIdentity
     {
         public int UserId { get; private set; }
 
@@ -30,7 +30,7 @@ namespace AVD.Common.Auth
         /// </returns>
         public bool IsAuthenticated { get; set; }
 
-        public TEIdentityBase(string name, bool isAuthenticated, string authenticationType, int userId)
+        public EMRMIdentityBase(string name, bool isAuthenticated, string authenticationType, int userId)
         {
             Name = name;
             IsAuthenticated = isAuthenticated;

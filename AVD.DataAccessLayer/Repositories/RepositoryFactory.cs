@@ -28,12 +28,12 @@ namespace AVD.DataAccessLayer.Repositories
         {
             public object FilterExpression { get; set; }
 
-            public Func<TEIdentityBase, bool> AppliesWhen { get; set; }
+            public Func<EMRMIdentityBase, bool> AppliesWhen { get; set; }
 
             public GetActionTypes Action { get; set; }
         }
 
-        public static readonly Func<TEIdentityBase, bool> AppliesToAllFunc = (i) => true;
+        public static readonly Func<EMRMIdentityBase, bool> AppliesToAllFunc = (i) => true;
 
         private static volatile Dictionary<Type, List<Filter>> filters;
 
@@ -123,11 +123,11 @@ namespace AVD.DataAccessLayer.Repositories
         /// <param name="appliesWhen">The filter is applied when this is true. This need not be convertable to SQL.</param>
         /// <param name="action">Dictates the behaviour that any get by ID methods undertake</param>
         /// <remarks>For both functions above, you should not save state between threads and users.
-        /// Additionaly, the appliesWhen should be consistent  per authenticated user(TEIdentityBase) and will be called at least once, but maybe only once (with outcome cached).
+        /// Additionaly, the appliesWhen should be consistent  per authenticated user(EMRMIdentityBase) and will be called at least once, but maybe only once (with outcome cached).
         /// </remarks>
         public static void RegisterFilter<TEntity, TIdentity>(Expression<Func<TEntity, bool>> filter, Func<TIdentity, bool> appliesWhen = null, GetActionTypes action = GetActionTypes.ThrowsUnauthorizedException)
             where TEntity : BaseModel
-            where TIdentity : TEIdentityBase
+            where TIdentity : EMRMIdentityBase
         {
             Logger.InstanceVerbose.LogFunctionEntry(typeof(RepositoryFactory).Name, String.Format("RegisterFilter<{0}>", typeof(TEntity).Name));
 
@@ -177,7 +177,7 @@ namespace AVD.DataAccessLayer.Repositories
 
             Expression<Func<TEntity, bool>> filters;
 
-            if (Thread.CurrentPrincipal.Identity as TEIdentityBase == null)
+            if (Thread.CurrentPrincipal.Identity as EMRMIdentityBase == null)
             {
                 // Disallow access completely
                 actionType = GetActionTypes.ThrowsUnauthorizedException;
@@ -187,7 +187,7 @@ namespace AVD.DataAccessLayer.Repositories
 
             // Based on the appliesWhen outcome, concat all applicable filters and return
             var applicableFilters =
-                RepositoryFactory.filters[typeof(TEntity)].Where(t => t.AppliesWhen(Thread.CurrentPrincipal.Identity as TEIdentityBase)).ToList();
+                RepositoryFactory.filters[typeof(TEntity)].Where(t => t.AppliesWhen(Thread.CurrentPrincipal.Identity as EMRMIdentityBase)).ToList();
 
             actionType = GetActionTypes.ReturnsNull;
 

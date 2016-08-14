@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\AclUtility.cs" />
-    <Compile Include="Auth\TEIdentityBase.cs" />
+    <Compile Include="Auth\EMRMIdentityBase.cs" />
     <Compile Include="Auth\UriAclEntryDto.cs" />
     <Compile Include="Exceptions\ApiRequestException.cs" />
     <Compile Include="Exceptions\BusinessException.cs" />

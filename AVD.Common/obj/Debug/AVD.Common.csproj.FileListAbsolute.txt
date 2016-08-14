@@ -9,3 +9,14 @@ D:\AVD-PlayGround\AVD\AVD.Common\bin\Debug\log4net.ElasticSearch.pdb
 D:\AVD-PlayGround\AVD\AVD.Common\bin\Debug\Newtonsoft.Json.xml
 D:\AVD-PlayGround\AVD\AVD.Common\obj\Debug\AVD.Common.dll
 D:\AVD-PlayGround\AVD\AVD.Common\obj\Debug\AVD.Common.pdb
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\AVD.Common.dll.config
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\AVD.Common.dll
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\AVD.Common.pdb
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\log4net.dll
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\log4net.ElasticSearch.dll
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\Newtonsoft.Json.dll
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\log4net.xml
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\log4net.ElasticSearch.pdb
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\Newtonsoft.Json.xml
+D:\AVD-Ground\AVD\AVD.Common\obj\Debug\AVD.Common.dll
+D:\AVD-Ground\AVD\AVD.Common\obj\Debug\AVD.Common.pdb

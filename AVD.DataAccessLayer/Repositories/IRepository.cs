@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
-
-namespace AVD.DataAccessLayer
+namespace AVD.DataAccessLayer.Repositories
 {
     public interface IRepository<TEntity> : IDisposable, IDeleteRepository where TEntity : class
     {

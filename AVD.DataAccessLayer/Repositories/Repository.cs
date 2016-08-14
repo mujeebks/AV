@@ -1,22 +1,20 @@
-﻿using AVD.DataAccessLayer.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
-using AVD.Common.Logging;
-using AVD.DataAccessLayer;
 using AVD.Common.Exceptions;
+using AVD.Common.Logging;
+using AVD.DataAccessLayer.Models;
 
-namespace AVD.DataAccessLayer
+namespace AVD.DataAccessLayer.Repositories
 {
     /// <summary>
     /// Modified version of 
@@ -120,7 +118,8 @@ namespace AVD.DataAccessLayer
                 ThrowUnauthorizedOnMatchFail = false;
             }
 
-            Logger.InstanceVerbose.Debug(GetType().FullName, "Repository", String.Format("Creating repository Type={0}, HasFilter={1}, ThrowUnauthorizedOnMatchFail={2}, AutoDetectChangesEnabled={3}", typeof(TEntity).Name, filterExpression != null, ThrowUnauthorizedOnMatchFail, autoDetectChangesEnabled));
+            Logger.InstanceVerbose.Debug(GetType().FullName, "Repository",
+                $"Creating repository Type={typeof(TEntity).Name}, HasFilter={filterExpression != null}, ThrowUnauthorizedOnMatchFail={ThrowUnauthorizedOnMatchFail}, AutoDetectChangesEnabled={autoDetectChangesEnabled}");
 
 #if (DEBUG) // Please leave this in just incase you uncomment and commit the line below.
             // Disabling this as holds onto the DBContext and causes memory leaks.
@@ -585,7 +584,7 @@ namespace AVD.DataAccessLayer
             var tableName = ((IObjectContextAdapter)DbContext).ObjectContext.MetadataWorkspace.GetItems<EntityContainer>(DataSpace.SSpace).First()
                 .BaseEntitySets.First(meta => meta.ElementType.Name == typeof(TEntity).Name).Table;
 
-            string command = String.Format("TRUNCATE TABLE [{0}]", tableName);
+            string command = $"TRUNCATE TABLE [{tableName}]";
             objCtx.ExecuteStoreCommand(command);
 
             Logger.InstanceVerbose.LogFunctionExit("Repository", "DeleteAllUsingTruncateQuery");
@@ -637,7 +636,8 @@ namespace AVD.DataAccessLayer
 
             var end = DateTime.Now;
             TimeSpan executionTime = end - start;
-            Logger.InstanceVerbose.Debug("Repository", "BatchInsertList", string.Format("Batch completed in {0}s", executionTime.TotalSeconds));
+            Logger.InstanceVerbose.Debug("Repository", "BatchInsertList",
+                $"Batch completed in {executionTime.TotalSeconds}s");
 
             DbContext.Configuration.AutoDetectChangesEnabled = previousAutoDetectChangesSetting;
         }
@@ -649,13 +649,18 @@ namespace AVD.DataAccessLayer
         private void AddRangeOfEntitiesToContextAndSave(IEnumerable<TEntity> entities)
         {
            
-            Logger.InstanceVerbose.Debug(this.GetType().Name, String.Format("AddRangeOfEntitiesToContextAndSave({0})", typeof(TEntity).Name), "InsertRange BEGIN >>>");
+            Logger.InstanceVerbose.Debug(this.GetType().Name,
+                $"AddRangeOfEntitiesToContextAndSave({typeof(TEntity).Name})", "InsertRange BEGIN >>>");
             InsertRange(entities);
-            Logger.InstanceVerbose.Debug(this.GetType().Name, String.Format("AddRangeOfEntitiesToContextAndSave({0})", typeof(TEntity).Name), "InsertRange END >>>");
+            Logger.InstanceVerbose.Debug(this.GetType().Name,
+                $"AddRangeOfEntitiesToContextAndSave({typeof(TEntity).Name})", "InsertRange END >>>");
 
-            Logger.InstanceVerbose.Debug(this.GetType().Name, String.Format("AddRangeOfEntitiesToContextAndSave({0})", typeof(TEntity).Name), "BEGIN AddEntitiesToContextAndFlushIfThresholdIsReached");
+            Logger.InstanceVerbose.Debug(this.GetType().Name,
+                $"AddRangeOfEntitiesToContextAndSave({typeof(TEntity).Name})", "BEGIN AddEntitiesToContextAndFlushIfThresholdIsReached");
             int savedItems = this.SaveChanges();
-            Logger.InstanceVerbose.Debug(this.GetType().Name, String.Format("AddRangeOfEntitiesToContextAndSave({0})", typeof(TEntity).Name), String.Format("END AddEntitiesToContextAndFlushIfThresholdIsReached of {0} entities", savedItems));
+            Logger.InstanceVerbose.Debug(this.GetType().Name,
+                $"AddRangeOfEntitiesToContextAndSave({typeof(TEntity).Name})",
+                $"END AddEntitiesToContextAndFlushIfThresholdIsReached of {savedItems} entities");
         }
 
         /// <summary>
