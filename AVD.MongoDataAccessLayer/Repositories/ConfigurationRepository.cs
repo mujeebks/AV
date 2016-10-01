@@ -29,7 +29,7 @@ namespace AVD.MongoDataAccessLayer.Repositories
     public class ConfigurationRepository : GenericRepository, IConfigurationRepository
     {
         public ConfigurationRepository(IMongoConnectionStringRepository connectionStringRepository)
-            : base(connectionStringRepository)
+             : base(connectionStringRepository)
         { }
 
         ///<summary>
@@ -38,8 +38,8 @@ namespace AVD.MongoDataAccessLayer.Repositories
         public IList<EntityMongoDao> GetEntities()
         {
 
-            ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository);
-            List<EntityMongoDao> mongoDbLoadEntitesInSearchPeriod = context.Entities.Find(x => true)
+            var context = ERMMongoContext.Create(base.ConnectionStringRepository);
+            var mongoDbLoadEntitesInSearchPeriod = context.Entities.Find(x => true)
                 .ToList();
 
             return mongoDbLoadEntitesInSearchPeriod;
@@ -50,22 +50,37 @@ namespace AVD.MongoDataAccessLayer.Repositories
         ///</summary>
         public IList<EntityMongoDao> GetEntities(int pageNo, int pageSize)
         {
-            int skipCount = (pageNo - 1) * 20;
+            var skipCount = (pageNo - 1) * 20;
 
-            ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository);
-            List<EntityMongoDao> mongoDbLoadEntitesInSearchPeriod = context.Entities.Find(x => true).Skip(skipCount).Limit(pageSize)
+            var context = ERMMongoContext.Create(base.ConnectionStringRepository);
+            var mongoDbLoadEntitesInSearchPeriod = context.Entities.Find(x => true).Skip(skipCount).Limit(pageSize)
                 .ToList();
 
             return mongoDbLoadEntitesInSearchPeriod;
         }
 
+        ///<summary>
+        ///Get entites by order caluse (Asc: {TypeName}, Desc:{CreationDate}).
+        ///</summary>
+        public IList<EntityMongoDao> GetEntities(int pageNo, int pageSize, bool sortby)
+        {
+            var skipCount = (pageNo - 1) * pageSize;
+
+            var builder = Builders<EntityMongoDao>.Sort;
+            var sort = builder.Ascending(x => x.EntityId).Descending(x => x.CreationDate);
+
+            var context = ERMMongoContext.Create(base.ConnectionStringRepository);
+            var mongoDbLoadEntites = context.Entities.Find(x => true).Sort(sort).SortBy(x => x.Name).ThenByDescending(x => x.EntityId).ThenByDescending(x => x.CreationDate).Skip(skipCount).Limit(pageSize)
+                .ToList();
+            return mongoDbLoadEntites;
+        }
 
         ///<summary>
         ///Get all entites between creation dates.
         ///</summary>
         public IList<EntityMongoDao> GetEntitiesForTimePeriod(DateTime searchStartDateUtc, DateTime searchEndDateUtc)
         {
-            ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository);
+            var context = ERMMongoContext.Create(base.ConnectionStringRepository);
 
             var dateQueryBuilder = Builders<EntityMongoDao>.Filter;
             var startDateBeforeSearchStartFilter = dateQueryBuilder.Lte<DateTime>(l => l.CreationDate, searchStartDateUtc);
@@ -84,38 +99,37 @@ namespace AVD.MongoDataAccessLayer.Repositories
 
             var ultimateQuery = dateQueryBuilder.Or(new List<FilterDefinition<EntityMongoDao>>() { firstPartialDateQuery, secondPartialDateQuery, thirdPartialDateQuery, fourthPartialQuery });
 
-            List<EntityMongoDao> mongoDbLoadtestsInSearchPeriod = context.Entities.Find(ultimateQuery)
+            var mongoDbLoadtestsInSearchPeriod = context.Entities.Find(ultimateQuery)
                 .ToList();
 
             return mongoDbLoadtestsInSearchPeriod;
         }
 
-        ///<summary>
-        ///Add or update entities
-        ///</summary>
-        public void AddOrUpdateLoadEntites(List<EntityMongoDao> ToBeInserted = null, List<EntityMongoDao> ToBeUpdated = null)
+        /// <summary>
+        /// Add or update entities
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        public void AddOrUpdateLoadEntites(List<EntityMongoDao> toBeInserted = null, List<EntityMongoDao> toBeUpdated = null)
         {
-            ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository);
+            var context = ERMMongoContext.Create(base.ConnectionStringRepository);
 
-            if (ToBeInserted.Any())
+            if (toBeInserted != null && toBeInserted.Any())
             {
 
-                context.Entities.InsertMany(ToBeInserted);
+                context.Entities.InsertMany(toBeInserted);
             }
 
-            if (ToBeUpdated.Any())
+            if (toBeUpdated == null) return;
+            foreach (var entity in toBeUpdated)
             {
-                foreach (EntityMongoDao toBeUpdated in ToBeUpdated)
+                var existingEntityId = entity.EntityId;
+                var loadentityInDbQuery = context.Entities.Find<EntityMongoDao>(lt => lt.EntityId == existingEntityId);
+                var loadentityInDb = loadentityInDbQuery.FirstOrDefault();
+                if (loadentityInDb == null) continue;
                 {
-                    int existingEntityId = toBeUpdated.EntityId;
-                    var loadentityInDbQuery = context.Entities.Find<EntityMongoDao>(lt => lt.EntityId == existingEntityId);
-                    EntityMongoDao loadentityInDb = loadentityInDbQuery.FirstOrDefault();
-                    if (loadentityInDb != null)
-                    {
-                        loadentityInDb.Name = toBeUpdated.Name;
-                        loadentityInDb.CreationDate = toBeUpdated.CreationDate;
-                        context.Entities.FindOneAndReplace<EntityMongoDao>(lt => lt.DbObjectId == loadentityInDb.DbObjectId, loadentityInDb);
-                    }
+                    loadentityInDb.Name = entity.Name;
+                    loadentityInDb.CreationDate = entity.CreationDate;
+                    context.Entities.FindOneAndReplace<EntityMongoDao>(lt => lt.DbObjectId == loadentityInDb.DbObjectId, loadentityInDb);
                 }
             }
         }
@@ -125,7 +139,7 @@ namespace AVD.MongoDataAccessLayer.Repositories
         ///</summary>
         public void DeleteById(int id)
         {
-            ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository);
+            var context = ERMMongoContext.Create(base.ConnectionStringRepository);
             context.Entities.FindOneAndDelete<EntityMongoDao>(lt => lt.EntityId == id);
         }
 
@@ -135,11 +149,10 @@ namespace AVD.MongoDataAccessLayer.Repositories
         public MetadataVersionMongoDao MetadataVersion(string versionCollectionName)
         {
 
-            ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository);
-            MetadataVersionMongoDao mongoDbVersion = context.MetadataVersion(versionCollectionName).Find(x => true).SingleOrDefault();
+            var context = ERMMongoContext.Create(base.ConnectionStringRepository);
+            var mongoDbVersion = context.MetadataVersion(versionCollectionName).Find(x => true).SingleOrDefault();
             return mongoDbVersion;
         }
-
 
         /// <summary>
         /// Get MetaData Objects
@@ -150,10 +163,10 @@ namespace AVD.MongoDataAccessLayer.Repositories
             try
             {
 
-                ERMMongoContext context = ERMMongoContext.Create(new WebConfigConnectionStringRepository());
-                Task<MetadataVersionMongoDao> versionDetailTask = context.MetadataVersion("version1").Find(x => true).SingleOrDefaultAsync();
+                var context = ERMMongoContext.Create(new WebConfigConnectionStringRepository());
+                var versionDetailTask = context.MetadataVersion("version1").Find(x => true).SingleOrDefaultAsync();
                 Task.WaitAll(versionDetailTask);
-                MetadataVersionMongoDao versionDetail = versionDetailTask.Result;
+                var versionDetail = versionDetailTask.Result;
 
                 if (typeof(T).Name == "EntityTypeMongoDao")
                 {
@@ -168,7 +181,7 @@ namespace AVD.MongoDataAccessLayer.Repositories
             }
             catch
             {
-
+                // ignored
             }
 
             return obj;
@@ -177,15 +190,15 @@ namespace AVD.MongoDataAccessLayer.Repositories
         /// <summary>
         /// Get EntityType Relation based on EntitytypeId
         /// </summary>
-        public List<EntityTypeAttributeRelationMongoDao> GetEntityTypeRelationById(string collectionName, int entityTypeId, int versionID)
+        public List<EntityTypeAttributeRelationMongoDao> GetEntityTypeRelationById(string collectionName, int entityTypeId, int versionId)
         {
-            List<EntityTypeAttributeRelationMongoDao> result = new List<EntityTypeAttributeRelationMongoDao>();
+            var result = new List<EntityTypeAttributeRelationMongoDao>();
             try
             {
-                ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository);
-                MetadataVersionMongoDao versionWithBuilderTask = context.MetadataVersion(collectionName)
-                 .Find(Builders<MetadataVersionMongoDao>.Filter.Eq<int>(a => a.VersionId, versionID)).FirstOrDefault();
-                MetadataVersionMongoDao planEntitesWithBuilder = versionWithBuilderTask;
+                var context = ERMMongoContext.Create(base.ConnectionStringRepository);
+                var versionWithBuilderTask = context.MetadataVersion(collectionName)
+                 .Find(Builders<MetadataVersionMongoDao>.Filter.Eq<int>(a => a.VersionId, versionId)).FirstOrDefault();
+                var planEntitesWithBuilder = versionWithBuilderTask;
                 result = planEntitesWithBuilder.EntityTypeAttributeRelation.Where(a => a.EntityTypeID == entityTypeId).ToList();
 
                 //EntityTypeMongoDao entityTypeObj = new EntityTypeMongoDao();
@@ -201,7 +214,7 @@ namespace AVD.MongoDataAccessLayer.Repositories
             }
             catch
             {
-
+                // ignored
             }
 
             return result;
@@ -212,18 +225,18 @@ namespace AVD.MongoDataAccessLayer.Repositories
         /// Get current metadata version details
         /// </summary>
         /// <returns>MetadataVersionMongoDao</returns>
-        public MetadataVersionMongoDao getCurrentVersion()
+        public MetadataVersionMongoDao GetCurrentVersion()
         {
-            MetadataVersionMongoDao currentVersion = new MetadataVersionMongoDao();
+            var currentVersion = new MetadataVersionMongoDao();
             try
             {
-                ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository);
+                var context = ERMMongoContext.Create(base.ConnectionStringRepository);
                 currentVersion = context.MetadataVersion("version1")
                 .Find(Builders<MetadataVersionMongoDao>.Filter.Eq<int>(a => a.VersionId, 1)).FirstOrDefault();
             }
             catch
             {
-
+                // ignored
             }
             return currentVersion;
         }
@@ -232,20 +245,21 @@ namespace AVD.MongoDataAccessLayer.Repositories
         /// Save metadata configuration in mongodb
         /// </summary>
         /// <typeparam name="T"></typeparam>
+        /// <param name="saveObj"></param>
         /// <param name="versionName"></param>
         /// <returns>int</returns>
         public int SaveObject<T>(T saveObj, string versionName)
         {
-            int lastId = 0;
+            var lastId = 0;
 
             try
             {
 
-                ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository); MetadataVersionMongoDao metadataVersion = getCurrentVersion();
+                var context = ERMMongoContext.Create(base.ConnectionStringRepository); var metadataVersion = GetCurrentVersion();
 
                 if (typeof(T).Name == "EntityTypeMongoDao" && saveObj != null)
                 {
-                    EntityTypeMongoDao newObj = saveObj as EntityTypeMongoDao; var existType = metadataVersion.EntityTypes.Where(a => a.EntityTypeId == newObj.EntityTypeId).FirstOrDefault();
+                    var newObj = saveObj as EntityTypeMongoDao; var existType = metadataVersion.EntityTypes.FirstOrDefault(a => newObj != null && a.EntityTypeId == newObj.EntityTypeId);
                     if (existType == null)
                     {
                         var filter = Builders<MetadataVersionMongoDao>.Filter.Eq(p => p.VersionId, 1); var updateset = Update.AddToSet("EntityTypes", newObj.ToBsonDocument());
@@ -254,21 +268,25 @@ namespace AVD.MongoDataAccessLayer.Repositories
                     else
                     {
                         var filter = Builders<MetadataVersionMongoDao>.Filter.Eq(p => p.VersionId, 1);
-                        if (metadataVersion != null)
                         {
-                            var type = metadataVersion.EntityTypes.Where(f => f.EntityTypeId == existType.EntityTypeId).FirstOrDefault();
-                            type.ShortDescription = newObj.ShortDescription; type.Category = newObj.Category; type.ColorCode = newObj.ColorCode; type.Caption = newObj.Caption; type.Description = newObj.Description; type.IsAssociate = newObj.IsAssociate; type.IsRootLevel = newObj.IsRootLevel; type.ModuleCaption = newObj.ModuleCaption; type.ModuleID = newObj.ModuleID;
+                            var type = metadataVersion.EntityTypes.FirstOrDefault(f => f.EntityTypeId == existType.EntityTypeId);
+                            if (newObj != null)
+                            {
+                                if (type != null)
+                                {
+                                    type.ShortDescription = newObj.ShortDescription; type.Category = newObj.Category; type.ColorCode = newObj.ColorCode; type.Caption = newObj.Caption; type.Description = newObj.Description; type.IsAssociate = newObj.IsAssociate; type.IsRootLevel = newObj.IsRootLevel; type.ModuleCaption = newObj.ModuleCaption; type.ModuleID = newObj.ModuleID;
+                                }
+                            }
                         }
                         context.MetadataVersion("version1").ReplaceOne(filter, metadataVersion);
                     }
 
-                    lastId = newObj.EntityTypeId;
-
+                    if (newObj != null) lastId = newObj.EntityTypeId;
                 }
             }
             catch
             {
-
+                // ignored
             }
 
             return lastId;
@@ -285,7 +303,7 @@ namespace AVD.MongoDataAccessLayer.Repositories
             try
             {
                 //Loop through and save use SaveObject<T>(T saveObj, string versionName)
-                foreach (T obj in listObj)
+                foreach (var obj in listObj)
                 {
                     SaveObject<T>(obj, versionName);
                 }
@@ -309,19 +327,17 @@ namespace AVD.MongoDataAccessLayer.Repositories
             try
             {
 
-                ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository); MetadataVersionMongoDao metadataVersion = getCurrentVersion();
-                if (typeof(T).Name == "EntityTypeMongoDao" && deleteObj != null)
+                var context = ERMMongoContext.Create(base.ConnectionStringRepository); var metadataVersion = GetCurrentVersion();
+                if (typeof(T).Name != "EntityTypeMongoDao" || deleteObj == null) return true;
+                var mongoObj = deleteObj as EntityTypeMongoDao;
+                var existType = metadataVersion.EntityTypes.FirstOrDefault(a => mongoObj != null && a.EntityTypeId == mongoObj.EntityTypeId);
+                var filter = Builders<MetadataVersionMongoDao>.Filter.Eq(p => p.VersionId, 1);
                 {
-                    EntityTypeMongoDao mongoObj = deleteObj as EntityTypeMongoDao; var existType = metadataVersion.EntityTypes.Where(a => a.EntityTypeId == mongoObj.EntityTypeId).FirstOrDefault();
-                    var filter = Builders<MetadataVersionMongoDao>.Filter.Eq(p => p.VersionId, 1);
-                    if (metadataVersion != null)
-                    {
-                        var type = metadataVersion.EntityTypes.Where(f => f.EntityTypeId == existType.EntityTypeId).FirstOrDefault();
-                        //Removing from the collection and save it again
-                        metadataVersion.EntityTypes.Remove(type);
-                    }
-                    context.MetadataVersion("version1").ReplaceOne(filter, metadataVersion);
+                    var type = metadataVersion.EntityTypes.FirstOrDefault(f => existType != null && f.EntityTypeId == existType.EntityTypeId);
+                    //Removing from the collection and save it again
+                    metadataVersion.EntityTypes.Remove(type);
                 }
+                context.MetadataVersion("version1").ReplaceOne(filter, metadataVersion);
 
                 return true;
             }
@@ -336,7 +352,7 @@ namespace AVD.MongoDataAccessLayer.Repositories
         /// Delete single MongoDb Object from the Sub document
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="deleteObj"></param>
+        /// <param name="deleteArr"></param>
         /// <param name="versionName"></param>
         /// <returns></returns>
         public bool DeleteObject<T>(List<T> deleteArr, string versionName)
@@ -344,7 +360,7 @@ namespace AVD.MongoDataAccessLayer.Repositories
             try
             {
                 //Loop through and delete use DeleteObject<T>(T deleteObj, string versionName)
-                foreach (T obj in deleteArr)
+                foreach (var obj in deleteArr)
                 {
                     DeleteObject<T>(obj, versionName);
                 }
@@ -360,28 +376,29 @@ namespace AVD.MongoDataAccessLayer.Repositories
         /// <summary>
         /// Get EntityType Relation based on EntitytypeId
         /// </summary>
-        public List<EntityTypeAttributeRelationMongoDao> GetEntityTypeRelationByIdMatch(string collectionName, int entityTypeId, int versionID)
+        public List<EntityTypeAttributeRelationMongoDao> GetEntityTypeRelationByIdMatch(string collectionName, int entityTypeId, int versionId)
         {
-            List<EntityTypeAttributeRelationMongoDao> result = new List<EntityTypeAttributeRelationMongoDao>();
+            var result = new List<EntityTypeAttributeRelationMongoDao>();
             try
             {
-                ERMMongoContext context = ERMMongoContext.Create(base.ConnectionStringRepository);
+                var context = ERMMongoContext.Create(base.ConnectionStringRepository);
                 var aggregate1 = context.MetadataVersion(collectionName).Aggregate()
-               .Match(new BsonDocument { { "VersionId", versionID } })
+               .Match(new BsonDocument { { "VersionId", versionId } })
                .Unwind(x => x.EntityTypeAttributeRelation)
                .Match(new BsonDocument { { "EntityTypeAttributeRelation.EntityTypeID", new BsonDocument { { "$eq", entityTypeId } } } })
                .Group(new BsonDocument { { "_id", "$_id" }, { "list", new BsonDocument { { "$push", "$EntityTypeAttributeRelation" } } } }).FirstOrDefault();
-                BsonValue dimVal = aggregate1["list"];
+                var dimVal = aggregate1["list"];
                 result = BsonSerializer.Deserialize<List<EntityTypeAttributeRelationMongoDao>>(dimVal.ToJson());
             }
             catch
             {
-
+                // ignored
             }
 
             return result;
 
         }
+
 
     }
 }

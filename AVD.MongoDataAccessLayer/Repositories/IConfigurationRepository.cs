@@ -12,8 +12,8 @@ namespace AVD.MongoDataAccessLayer.Repositories
         IList<EntityMongoDao> GetEntitiesForTimePeriod(DateTime searchStartDateUtc, DateTime searchEndDateUtc);
         IList<EntityMongoDao> GetEntities(int pageNo, int pageSize);
         MetadataVersionMongoDao MetadataVersion(string versionCollectionName);
-        List<EntityTypeAttributeRelationMongoDao> GetEntityTypeRelationById(string collectionName, int entityTypeId, int versionID);
-        void AddOrUpdateLoadEntites(List<EntityMongoDao> ToBeInserted = null, List<EntityMongoDao> ToBeUpdated = null);
+        List<EntityTypeAttributeRelationMongoDao> GetEntityTypeRelationById(string collectionName, int entityTypeId, int versionId);
+        void AddOrUpdateLoadEntites(List<EntityMongoDao> toBeInserted = null, List<EntityMongoDao> toBeUpdated = null);
         void DeleteById(int id);
 
         int SaveObject<T>(T saveObj, string versionName);

@@ -56,3 +56,9 @@ D:\AVD-Ground\AVD\AVD.MongoDataAccessLayer\bin\Debug\EntityFramework.MappingAPI.
 D:\AVD-Ground\AVD\AVD.MongoDataAccessLayer\obj\Debug\AVD.MongoDataAccessLayer.csprojResolveAssemblyReference.cache
 D:\AVD-Ground\AVD\AVD.MongoDataAccessLayer\obj\Debug\AVD.MongoDataAccessLayer.dll
 D:\AVD-Ground\AVD\AVD.MongoDataAccessLayer\obj\Debug\AVD.MongoDataAccessLayer.pdb
+D:\AVD-Ground\AVD\AVD.MongoDataAccessLayer\bin\Debug\StackExchange.Redis.dll
+D:\AVD-Ground\AVD\AVD.MongoDataAccessLayer\bin\Debug\StackExchange.Redis.DataTypes.dll
+D:\AVD-Ground\AVD\AVD.MongoDataAccessLayer\bin\Debug\StackExchange.Redis.pdb
+D:\AVD-Ground\AVD\AVD.MongoDataAccessLayer\bin\Debug\StackExchange.Redis.xml
+D:\AVD-Ground\AVD\AVD.MongoDataAccessLayer\bin\Debug\AutoMapper.dll
+D:\AVD-Ground\AVD\AVD.MongoDataAccessLayer\bin\Debug\AutoMapper.xml

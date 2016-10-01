@@ -20,3 +20,10 @@ D:\AVD-Ground\AVD\AVD.Common\bin\Debug\log4net.ElasticSearch.pdb
 D:\AVD-Ground\AVD\AVD.Common\bin\Debug\Newtonsoft.Json.xml
 D:\AVD-Ground\AVD\AVD.Common\obj\Debug\AVD.Common.dll
 D:\AVD-Ground\AVD\AVD.Common\obj\Debug\AVD.Common.pdb
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\StackExchange.Redis.DataTypes.dll
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\StackExchange.Redis.dll
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\StackExchange.Redis.pdb
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\StackExchange.Redis.xml
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\AutoMapper.dll
+D:\AVD-Ground\AVD\AVD.Common\bin\Debug\AutoMapper.xml
+D:\AVD-Ground\AVD\AVD.Common\obj\Debug\AVD.Common.csprojResolveAssemblyReference.cache

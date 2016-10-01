@@ -22,21 +22,21 @@ namespace AVD.DataAccessLayer.Models
         {
         }
 
-        public DbSet<AM_LOG> AM_LOG { get; set; }
+        public DbSet<AM_LOG> AmLog { get; set; }
         public DbSet<Error> Errors { get; set; }
-        public DbSet<MD_Attribute> MD_Attribute { get; set; }
-        public DbSet<MD_AttributeType> MD_AttributeType { get; set; }
-        public DbSet<MD_EntityType> MD_EntityType { get; set; }
-        public DbSet<MD_EntityType_Feature> MD_EntityType_Feature { get; set; }
-        public DbSet<MD_EntityType_Hierarchy> MD_EntityType_Hierarchy { get; set; }
-        public DbSet<MD_Feature> MD_Feature { get; set; }
-        public DbSet<MD_MetadataVersion> MD_MetadataVersion { get; set; }
-        public DbSet<MD_Module> MD_Module { get; set; }
-        public DbSet<MD_Option> MD_Option { get; set; }
-        public DbSet<MD_TreeLevel> MD_TreeLevel { get; set; }
-        public DbSet<MD_TreeNode> MD_TreeNode { get; set; }
-        public DbSet<MD_Validation> MD_Validation { get; set; }
-        public DbSet<UM_User> UM_User { get; set; }
+        public DbSet<MD_Attribute> MdAttribute { get; set; }
+        public DbSet<MD_AttributeType> MdAttributeType { get; set; }
+        public DbSet<MD_EntityType> MdEntityType { get; set; }
+        public DbSet<MD_EntityType_Feature> MdEntityTypeFeature { get; set; }
+        public DbSet<MD_EntityType_Hierarchy> MdEntityTypeHierarchy { get; set; }
+        public DbSet<MD_Feature> MdFeature { get; set; }
+        public DbSet<MD_MetadataVersion> MdMetadataVersion { get; set; }
+        public DbSet<MD_Module> MdModule { get; set; }
+        public DbSet<MD_Option> MdOption { get; set; }
+        public DbSet<MD_TreeLevel> MdTreeLevel { get; set; }
+        public DbSet<MD_TreeNode> MdTreeNode { get; set; }
+        public DbSet<MD_Validation> MdValidation { get; set; }
+        public DbSet<User> UmUser { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -54,7 +54,7 @@ namespace AVD.DataAccessLayer.Models
             modelBuilder.Configurations.Add(new MD_TreeLevelMap());
             modelBuilder.Configurations.Add(new MD_TreeNodeMap());
             modelBuilder.Configurations.Add(new MD_ValidationMap());
-            modelBuilder.Configurations.Add(new UM_UserMap());
+            modelBuilder.Configurations.Add(new UserMap());
         }
     }
 }

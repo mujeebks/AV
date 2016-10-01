@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -64,11 +68,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
+    <Compile Include="Enums\AccommodationTypes.cs" />
+    <Compile Include="Enums\AddressTypes.cs" />
+    <Compile Include="Enums\AgencyTypes.cs" />
+    <Compile Include="Enums\BusinessTypes.cs" />
+    <Compile Include="Enums\CorrespondenceSubTypes.cs" />
+    <Compile Include="Enums\CorrespondenceTypes.cs" />
+    <Compile Include="Enums\CurrencyTypes.cs" />
+    <Compile Include="Enums\EmailTypes.cs" />
+    <Compile Include="Enums\EngineActionTypes.cs" />
+    <Compile Include="Enums\LocationTypes.cs" />
+    <Compile Include="Enums\NegotitatedHotelContractRateCodeTypes.cs" />
+    <Compile Include="Enums\NotificationActionTypes.cs" />
+    <Compile Include="Enums\NotificationPriorityTypes.cs" />
+    <Compile Include="Enums\NotificationsTypes.cs" />
+    <Compile Include="Enums\RoleTypes.cs" />
+    <Compile Include="Enums\RoleTypeTypes.cs" />
+    <Compile Include="Enums\UserTypes.cs" />
     <Compile Include="Models\AM_LOG.cs" />
+    <Compile Include="Models\ApiAclEntry.cs" />
     <Compile Include="Models\BaseSystemContext.cs" />
+    <Compile Include="Models\CachedItem.cs" />
+    <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\Mapping\CachedItemMap.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\EmailType.cs" />
     <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\ErrorMessage.cs" />
+    <Compile Include="Models\ErrorOccurance.cs" />
     <Compile Include="Models\Mapping\AM_LOGMap.cs" />
+    <Compile Include="Models\Mapping\ApiAclEntryMap.cs" />
+    <Compile Include="Models\Mapping\CurrencyMap.cs" />
+    <Compile Include="Models\Mapping\EmailMap.cs" />
+    <Compile Include="Models\Mapping\EmailTypeMap.generated.cs" />
     <Compile Include="Models\Mapping\ErrorMap.cs" />
+    <Compile Include="Models\Mapping\ErrorMessageMap.cs" />
+    <Compile Include="Models\Mapping\ErrorOccuranceMap.cs" />
     <Compile Include="Models\Mapping\MD_AttributeMap.cs" />
     <Compile Include="Models\Mapping\MD_AttributeTypeMap.cs" />
     <Compile Include="Models\Mapping\MD_EntityTypeMap.cs" />
@@ -81,7 +116,9 @@
     <Compile Include="Models\Mapping\MD_TreeLevelMap.cs" />
     <Compile Include="Models\Mapping\MD_TreeNodeMap.cs" />
     <Compile Include="Models\Mapping\MD_ValidationMap.cs" />
-    <Compile Include="Models\Mapping\UM_UserMap.cs" />
+    <Compile Include="Models\Mapping\RoleMap.generated.cs" />
+    <Compile Include="Models\Mapping\RoleTypeMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
     <Compile Include="Models\MD_Attribute.cs" />
     <Compile Include="Models\MD_AttributeType.cs" />
     <Compile Include="Models\MD_EntityType.cs" />
@@ -94,7 +131,9 @@
     <Compile Include="Models\MD_TreeLevel.cs" />
     <Compile Include="Models\MD_TreeNode.cs" />
     <Compile Include="Models\MD_Validation.cs" />
-    <Compile Include="Models\UM_User.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\RoleType.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="PagedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EMRMRepository.cs" />
@@ -105,7 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AVD.Common\AVD.Common.csproj">
@@ -113,6 +154,7 @@
       <Name>AVD.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

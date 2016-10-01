@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVD.DataAccessLayer", "AVD.DataAccessLayer\AVD.DataAccessLayer.csproj", "{D2A1FE04-7719-4C13-8909-B88B45482B73}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVD.Common", "AVD.Common\AVD.Common.csproj", "{D504DA98-84D0-46F8-A162-7D5C7E687DB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVD.MongoDataAccessLayer", "AVD.MongoDataAccessLayer\AVD.MongoDataAccessLayer.csproj", "{3BD9DC1D-BC53-4D50-8DB8-38E57A19F09F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVD.Core", "AVD.Core\AVD.Core.csproj", "{7816B2CF-DE3B-4F90-ACA9-181112F460D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVD.UnitTests", "AVD.UnitTests\AVD.UnitTests.csproj", "{DD02C00F-9AF6-4395-AF42-ABAF5D52CC39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDBUnitTest", "MongoDBUnitTest\MongoDBUnitTest.csproj", "{C7C1B749-793C-4F49-B428-C7C2A59208D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{3BD9DC1D-BC53-4D50-8DB8-38E57A19F09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD9DC1D-BC53-4D50-8DB8-38E57A19F09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BD9DC1D-BC53-4D50-8DB8-38E57A19F09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7816B2CF-DE3B-4F90-ACA9-181112F460D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7816B2CF-DE3B-4F90-ACA9-181112F460D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7816B2CF-DE3B-4F90-ACA9-181112F460D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7816B2CF-DE3B-4F90-ACA9-181112F460D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD02C00F-9AF6-4395-AF42-ABAF5D52CC39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD02C00F-9AF6-4395-AF42-ABAF5D52CC39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD02C00F-9AF6-4395-AF42-ABAF5D52CC39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD02C00F-9AF6-4395-AF42-ABAF5D52CC39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7C1B749-793C-4F49-B428-C7C2A59208D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C1B749-793C-4F49-B428-C7C2A59208D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C1B749-793C-4F49-B428-C7C2A59208D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C1B749-793C-4F49-B428-C7C2A59208D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

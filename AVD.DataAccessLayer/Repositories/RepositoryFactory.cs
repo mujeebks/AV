@@ -49,20 +49,20 @@ namespace AVD.DataAccessLayer.Repositories
 
 
 
-        public static TRepository Get<TRepository, TEntity>(bool autoDetectChangesEnabled = true)
-            where TRepository : Repository<TEntity>
-            where TEntity : BaseModel
+        public static TRepository Get<TRepository, AVDntity>(bool autoDetectChangesEnabled = true)
+            where TRepository : Repository<AVDntity>
+            where AVDntity : BaseModel
         {
-            Logger.InstanceVerbose.LogFunctionEntry(typeof(RepositoryFactory).Name, String.Format("Repository<{0}>", typeof(TEntity).Name));
+            Logger.InstanceVerbose.LogFunctionEntry(typeof(RepositoryFactory).Name, String.Format("Repository<{0}>", typeof(AVDntity).Name));
 
-            Expression<Func<TEntity, bool>> filter;
+            Expression<Func<AVDntity, bool>> filter;
             String username;
             bool throwsUnauthorized;
 
-            if (filters.ContainsKey(typeof(TEntity)))
+            if (filters.ContainsKey(typeof(AVDntity)))
             {
                 GetActionTypes action;
-                filter = GetFilter<TEntity>(out action);
+                filter = GetFilter<AVDntity>(out action);
                 username = Thread.CurrentPrincipal.Identity.Name;
                 throwsUnauthorized = action == GetActionTypes.ThrowsUnauthorizedException;
             }
@@ -75,16 +75,16 @@ namespace AVD.DataAccessLayer.Repositories
 
             Object repo;
 
-            if (typeof(TRepository) == typeof(Repository<TEntity>))
+            if (typeof(TRepository) == typeof(Repository<AVDntity>))
             {
-                repo = new Repository<TEntity>(username, filter, throwsUnauthorized, autoDetectChangesEnabled);
+                repo = new Repository<AVDntity>(username, filter, throwsUnauthorized, autoDetectChangesEnabled);
             }
             else
             {
                 throw new NotImplementedException();
             }
 
-            Logger.InstanceVerbose.LogFunctionExit(typeof(RepositoryFactory).Name, String.Format("Repository<{0}>", typeof(TEntity).Name));
+            Logger.InstanceVerbose.LogFunctionExit(typeof(RepositoryFactory).Name, String.Format("Repository<{0}>", typeof(AVDntity).Name));
 
             return repo as TRepository;
         }
@@ -93,15 +93,15 @@ namespace AVD.DataAccessLayer.Repositories
         /// <summary>
         /// This will return a repository with the correct filters applied.
         /// </summary>
-        /// <typeparam name="TEntity"></typeparam>
+        /// <typeparam name="AVDntity"></typeparam>
         /// <returns></returns>
-        public static Repository<TEntity> Get<TEntity>(bool autoDetectChangesEnabled = true) where TEntity : BaseModel
+        public static Repository<AVDntity> Get<AVDntity>(bool autoDetectChangesEnabled = true) where AVDntity : BaseModel
         {
-            Logger.InstanceVerbose.LogFunctionEntry(typeof(RepositoryFactory).Name, String.Format("Repository<{0}>", typeof(TEntity).Name));
+            Logger.InstanceVerbose.LogFunctionEntry(typeof(RepositoryFactory).Name, String.Format("Repository<{0}>", typeof(AVDntity).Name));
 
-            var entityRepository = Get<Repository<TEntity>, TEntity>(autoDetectChangesEnabled);
+            var entityRepository = Get<Repository<AVDntity>, AVDntity>(autoDetectChangesEnabled);
 
-            Logger.InstanceVerbose.LogFunctionExit(typeof(RepositoryFactory).Name, String.Format("Repository<{0}>", typeof(TEntity).Name));
+            Logger.InstanceVerbose.LogFunctionExit(typeof(RepositoryFactory).Name, String.Format("Repository<{0}>", typeof(AVDntity).Name));
 
             return entityRepository;
         }
@@ -109,46 +109,46 @@ namespace AVD.DataAccessLayer.Repositories
         /// <summary>
         /// DO NOT USE. Required for initial login only.
         /// </summary>
-        public static Repository<TEntity> GetUnsecured<TEntity>() where TEntity : BaseModel
+        public static Repository<AVDntity> GetUnsecured<AVDntity>() where AVDntity : BaseModel
         {
-            return new Repository<TEntity>(null, null);
+            return new Repository<AVDntity>(null, null);
         }
 
         /// <summary>
         /// This will register the given filter in the repository. Until Reset() is called, this filter will
         /// always be applied when "appliesWhen" is true.
         /// </summary>
-        /// <typeparam name="TEntity">The entity to apply the filter too. Note that this does not affect navigation properties (at this time)</typeparam>
+        /// <typeparam name="AVDntity">The entity to apply the filter too. Note that this does not affect navigation properties (at this time)</typeparam>
         /// <param name="filter">The filter expression. Will be used in the LINQ to SQL query</param>
         /// <param name="appliesWhen">The filter is applied when this is true. This need not be convertable to SQL.</param>
         /// <param name="action">Dictates the behaviour that any get by ID methods undertake</param>
         /// <remarks>For both functions above, you should not save state between threads and users.
         /// Additionaly, the appliesWhen should be consistent  per authenticated user(EMRMIdentityBase) and will be called at least once, but maybe only once (with outcome cached).
         /// </remarks>
-        public static void RegisterFilter<TEntity, TIdentity>(Expression<Func<TEntity, bool>> filter, Func<TIdentity, bool> appliesWhen = null, GetActionTypes action = GetActionTypes.ThrowsUnauthorizedException)
-            where TEntity : BaseModel
+        public static void RegisterFilter<AVDntity, TIdentity>(Expression<Func<AVDntity, bool>> filter, Func<TIdentity, bool> appliesWhen = null, GetActionTypes action = GetActionTypes.ThrowsUnauthorizedException)
+            where AVDntity : BaseModel
             where TIdentity : EMRMIdentityBase
         {
-            Logger.InstanceVerbose.LogFunctionEntry(typeof(RepositoryFactory).Name, String.Format("RegisterFilter<{0}>", typeof(TEntity).Name));
+            Logger.InstanceVerbose.LogFunctionEntry(typeof(RepositoryFactory).Name, String.Format("RegisterFilter<{0}>", typeof(AVDntity).Name));
 
-            Logger.InstanceVerbose.Debug(typeof(RepositoryFactory).Name, String.Format("RegisterFilter<{0}>", typeof(TEntity).Name),
-                "Registering a filter for type " + typeof(TEntity) + " with action " + action);
+            Logger.InstanceVerbose.Debug(typeof(RepositoryFactory).Name, String.Format("RegisterFilter<{0}>", typeof(AVDntity).Name),
+                "Registering a filter for type " + typeof(AVDntity) + " with action " + action);
             lock (syncRoot)
             {
                 var appliesWhenToUse = appliesWhen ?? AppliesToAllFunc;
 
-                if (!filters.ContainsKey(typeof (TEntity)))
+                if (!filters.ContainsKey(typeof (AVDntity)))
                 {
                     var list = new List<Filter>
                     {
                         new Filter {FilterExpression = filter, AppliesWhen = t => t is TIdentity && appliesWhenToUse(t as TIdentity), Action = action}
                     };
 
-                    filters.Add(typeof (TEntity), list);
+                    filters.Add(typeof (AVDntity), list);
                 }
                 else
                 {
-                    var list = filters[typeof (TEntity)];
+                    var list = filters[typeof (AVDntity)];
 
                     // Yes - this is a reference check on the delegate so we can concat the filters properly
                     var match = list.SingleOrDefault(d => d.AppliesWhen == appliesWhenToUse && d.Action == action);
@@ -159,23 +159,23 @@ namespace AVD.DataAccessLayer.Repositories
                     //else
                     //{
                     //    // Concat it to the previous expression
-                    //    var expression = (Expression<Func<TEntity, bool>>) match.FilterExpression;
+                    //    var expression = (Expression<Func<AVDntity, bool>>) match.FilterExpression;
                     //    match.FilterExpression = expression.And(filter);
                     //}
                 }
             }
 
-            Logger.InstanceVerbose.LogFunctionExit(typeof(RepositoryFactory).Name, String.Format("RegisterFilter<{0}>", typeof(TEntity).Name));
+            Logger.InstanceVerbose.LogFunctionExit(typeof(RepositoryFactory).Name, String.Format("RegisterFilter<{0}>", typeof(AVDntity).Name));
         }
 
         /// <summary>
         /// Returns a filter contexualised to the logged on user and entity.
         /// </summary>
-        private static Expression<Func<TEntity, bool>> GetFilter<TEntity>(out GetActionTypes actionType) where TEntity : BaseModel
+        private static Expression<Func<AVDntity, bool>> GetFilter<AVDntity>(out GetActionTypes actionType) where AVDntity : BaseModel
         {
-            Logger.InstanceVerbose.LogFunctionEntry(typeof(RepositoryFactory).Name, String.Format("GetFilter<{0}>", typeof(TEntity).Name));
+            Logger.InstanceVerbose.LogFunctionEntry(typeof(RepositoryFactory).Name, String.Format("GetFilter<{0}>", typeof(AVDntity).Name));
 
-            Expression<Func<TEntity, bool>> filters;
+            Expression<Func<AVDntity, bool>> filters;
 
             if (Thread.CurrentPrincipal.Identity as EMRMIdentityBase == null)
             {
@@ -187,7 +187,7 @@ namespace AVD.DataAccessLayer.Repositories
 
             // Based on the appliesWhen outcome, concat all applicable filters and return
             var applicableFilters =
-                RepositoryFactory.filters[typeof(TEntity)].Where(t => t.AppliesWhen(Thread.CurrentPrincipal.Identity as EMRMIdentityBase)).ToList();
+                RepositoryFactory.filters[typeof(AVDntity)].Where(t => t.AppliesWhen(Thread.CurrentPrincipal.Identity as EMRMIdentityBase)).ToList();
 
             actionType = GetActionTypes.ReturnsNull;
 
@@ -198,7 +198,7 @@ namespace AVD.DataAccessLayer.Repositories
                     actionType = GetActionTypes.ThrowsUnauthorizedException;
                 }
 
-                //filters = applicableFilters.Select(t => t.FilterExpression as Expression<Func<TEntity, bool>>).Aggregate((a, b) => a.And(b));
+                //filters = applicableFilters.Select(t => t.FilterExpression as Expression<Func<AVDntity, bool>>).Aggregate((a, b) => a.And(b));
                 filters = null;
             }
             else
@@ -211,9 +211,9 @@ namespace AVD.DataAccessLayer.Repositories
             if (filters != null)
                 message += "(" + actionType + ")";
 
-            Logger.InstanceVerbose.Info(typeof(RepositoryFactory).Name, String.Format("GetFilter<{0}>", typeof(TEntity).Name), message);
+            Logger.InstanceVerbose.Info(typeof(RepositoryFactory).Name, String.Format("GetFilter<{0}>", typeof(AVDntity).Name), message);
 
-            Logger.InstanceVerbose.LogFunctionExit(typeof(RepositoryFactory).Name, String.Format("GetFilter<{0}>", typeof(TEntity).Name));
+            Logger.InstanceVerbose.LogFunctionExit(typeof(RepositoryFactory).Name, String.Format("GetFilter<{0}>", typeof(AVDntity).Name));
 
             return filters;
         }

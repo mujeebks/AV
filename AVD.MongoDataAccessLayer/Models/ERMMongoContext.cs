@@ -7,6 +7,7 @@ using AVD.MongoDataAccessLayer.Models;
 using AVD.MongoDataAccessLayer.Repositories;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 
 namespace AVD.MongoDataAccessLayer.Models
 {
@@ -14,7 +15,7 @@ namespace AVD.MongoDataAccessLayer.Models
     {
         private IMongoClient Client { get; set; }
         private IMongoDatabase Database { get; set; }
-        private const string _databaseName = "MarketRobo";
+        private const string DatabaseName = "MarketRobo";
         private static ERMMongoContext _loadTestingContext;
 
         private ERMMongoContext() { }
@@ -24,9 +25,9 @@ namespace AVD.MongoDataAccessLayer.Models
             if (_loadTestingContext == null)
             {
                 _loadTestingContext = new ERMMongoContext();
-                string connectionString = connectionStringRepository.ReadConnectionString("MongoDbMarketRoboContext");
+                string connectionString = connectionStringRepository.ReadConnectionString("MongoDbERMMongoContext");
                 _loadTestingContext.Client = new MongoClient(connectionString);
-                _loadTestingContext.Database = _loadTestingContext.Client.GetDatabase(_databaseName);
+                _loadTestingContext.Database = _loadTestingContext.Client.GetDatabase(DatabaseName);
             }
            
             return _loadTestingContext;
@@ -37,10 +38,14 @@ namespace AVD.MongoDataAccessLayer.Models
             get { return Database.GetCollection<EntityMongoDao>("Entities"); }
         }
 
-
         public IMongoCollection<MetadataVersionMongoDao> MetadataVersion(string collectionNames)
         {
             return Database.GetCollection<MetadataVersionMongoDao>(collectionNames);
+        }
+
+        public IMongoCollection<BsonDocument> GetCollectionBsonDocument(string collectionName)
+        {
+            return Database.GetCollection<BsonDocument>(collectionName);
         }
 
         public async void CollectionBsonDocument(string collectionName)

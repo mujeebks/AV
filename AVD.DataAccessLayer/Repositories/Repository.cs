@@ -20,15 +20,15 @@ namespace AVD.DataAccessLayer.Repositories
     /// Modified version of 
     /// http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
     /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
+    /// <typeparam name="AVDntity"></typeparam>
     /// 
-    public class Repository<TEntity> : IDisposable, IRepository<TEntity> where TEntity : BaseModel //, IDisposable
+    public class Repository<AVDntity> : IDisposable, IRepository<AVDntity> where AVDntity : BaseModel //, IDisposable
     {
         protected TrackerEnabledDbContext.TrackerContext DbContext;
 
-        private DbSet<TEntity> entityDbSet { get; set; }
+        private DbSet<AVDntity> entityDbSet { get; set; }
 
-        private DbSet<TEntity> EntityDbSet
+        private DbSet<AVDntity> EntityDbSet
         {
             get
             {
@@ -40,12 +40,12 @@ namespace AVD.DataAccessLayer.Repositories
         /// <summary>
         ///The DBSet scoped/filtered to what the person can access
         /// </summary>
-        private IQueryable<TEntity> queryableEntitySet { get; set; }
+        private IQueryable<AVDntity> queryableEntitySet { get; set; }
 
         /// <summary>
         /// Provides access to the DBSet to query pre filtered items
         /// </summary>
-        protected IQueryable<TEntity> QueryableEntitySet
+        protected IQueryable<AVDntity> QueryableEntitySet
         {
             get
             {
@@ -55,9 +55,9 @@ namespace AVD.DataAccessLayer.Repositories
         }
 
 
-        private Func<TEntity, bool> matches { get; set; }
+        private Func<AVDntity, bool> matches { get; set; }
 
-        private Func<TEntity, bool> Matches
+        private Func<AVDntity, bool> Matches
         {
             get
             {
@@ -94,12 +94,12 @@ namespace AVD.DataAccessLayer.Repositories
 
 
 
-        internal Repository(String userName, Expression<Func<TEntity, bool>> filterExpression, bool throwUnauthorizedOnMatchFail = true, bool autoDetectChangesEnabled = true)
+        internal Repository(String userName, Expression<Func<AVDntity, bool>> filterExpression, bool throwUnauthorizedOnMatchFail = true, bool autoDetectChangesEnabled = true)
         {
             DbContext = new BaseSystemContext();
             //Context.Configuration.AutoDetectChangesEnabled = false; //perf fix
 
-            entityDbSet = DbContext.Set<TEntity>();
+            entityDbSet = DbContext.Set<AVDntity>();
             // EntityDbQuery = EntityDbSet.AsNoTracking();
 
             this.userName = userName;
@@ -119,7 +119,7 @@ namespace AVD.DataAccessLayer.Repositories
             }
 
             Logger.InstanceVerbose.Debug(GetType().FullName, "Repository",
-                $"Creating repository Type={typeof(TEntity).Name}, HasFilter={filterExpression != null}, ThrowUnauthorizedOnMatchFail={ThrowUnauthorizedOnMatchFail}, AutoDetectChangesEnabled={autoDetectChangesEnabled}");
+                $"Creating repository Type={typeof(AVDntity).Name}, HasFilter={filterExpression != null}, ThrowUnauthorizedOnMatchFail={ThrowUnauthorizedOnMatchFail}, AutoDetectChangesEnabled={autoDetectChangesEnabled}");
 
 #if (DEBUG) // Please leave this in just incase you uncomment and commit the line below.
             // Disabling this as holds onto the DBContext and causes memory leaks.
@@ -133,7 +133,7 @@ namespace AVD.DataAccessLayer.Repositories
 #endif
         }
 
-        public TEntity Create()
+        public AVDntity Create()
         {
             return EntityDbSet.Create();
         }
@@ -146,15 +146,15 @@ namespace AVD.DataAccessLayer.Repositories
         /// <summary>
         ///  Searches on all values the user can 'see' according to auth rules
         /// </summary>
-        public virtual IEnumerable<TEntity> Get(
-            Expression<Func<TEntity, bool>> filter,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        public virtual IEnumerable<AVDntity> Get(
+            Expression<Func<AVDntity, bool>> filter,
+            Func<IQueryable<AVDntity>, IOrderedQueryable<AVDntity>> orderBy = null,
             string includeProperties = "")
         {
 
             Logger.InstanceVerbose.LogFunctionEntry(GetType().FullName, "Get");
 
-            IQueryable<TEntity> query = QueryableEntitySet;
+            IQueryable<AVDntity> query = QueryableEntitySet;
 
             if (filter != null)
             {
@@ -184,7 +184,7 @@ namespace AVD.DataAccessLayer.Repositories
         /// <summary>
         /// Returns the maximum value the current user can 'see' according to auth rules
         /// </summary>
-        public virtual TVal Max<TVal>(Expression<Func<TEntity, TVal>> func)
+        public virtual TVal Max<TVal>(Expression<Func<AVDntity, TVal>> func)
         {
             Logger.InstanceVerbose.LogFunctionEntry(GetType().FullName, "Max");
             var result = QueryableEntitySet.Max(func);
@@ -193,11 +193,11 @@ namespace AVD.DataAccessLayer.Repositories
         }
 
         [Obsolete]
-        public TEntity FirstOrDefaultFunc(Func<TEntity, bool> predicate = null)
+        public AVDntity FirstOrDefaultFunc(Func<AVDntity, bool> predicate = null)
         {
             Logger.InstanceVerbose.LogFunctionEntry(GetType().FullName, "FirstOrDefaultFunc");
 
-            TEntity result;
+            AVDntity result;
             if (predicate != null)
                 result = QueryableEntitySet.FirstOrDefault(predicate);
             else
@@ -210,11 +210,11 @@ namespace AVD.DataAccessLayer.Repositories
         /// <summary>
         /// Returns the first value that the user can 'see' according to auth rules
         /// </summary>
-        public virtual TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate = null)
+        public virtual AVDntity FirstOrDefault(Expression<Func<AVDntity, bool>> predicate = null)
         {
             Logger.InstanceVerbose.LogFunctionEntry(GetType().FullName, "FirstOrDefault");
 
-            TEntity result;
+            AVDntity result;
             if (predicate != null)
                 result = QueryableEntitySet.FirstOrDefault(predicate);
             else
@@ -225,7 +225,7 @@ namespace AVD.DataAccessLayer.Repositories
         }
 
 
-        public virtual TEntity First(Expression<Func<TEntity, bool>> predicate = null)
+        public virtual AVDntity First(Expression<Func<AVDntity, bool>> predicate = null)
         {
             if (predicate != null)
                 return QueryableEntitySet.First(predicate);
@@ -233,7 +233,7 @@ namespace AVD.DataAccessLayer.Repositories
             return QueryableEntitySet.First();
         }
 
-        public TEntity Single(Expression<Func<TEntity, bool>> predicate)
+        public AVDntity Single(Expression<Func<AVDntity, bool>> predicate)
         {
             var entity = SingleOrDefault(predicate);
 
@@ -249,7 +249,7 @@ namespace AVD.DataAccessLayer.Repositories
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate)
+        public AVDntity SingleOrDefault(Expression<Func<AVDntity, bool>> predicate)
         {
             Logger.InstanceVerbose.LogFunctionEntry(GetType().FullName, "SingleOrDefault");
             var entity = EntityDbSet.SingleOrDefault(predicate);
@@ -259,7 +259,7 @@ namespace AVD.DataAccessLayer.Repositories
                 // Check authorization for this id
                 if (!Matches(entity))
                     if (ThrowUnauthorizedOnMatchFail)
-                        throw new ForbiddenException("Not allowed to access " + typeof(TEntity).Name + " with given predicate");
+                        throw new ForbiddenException("Not allowed to access " + typeof(AVDntity).Name + " with given predicate");
                     else
                         entity = null;
             }
@@ -269,10 +269,10 @@ namespace AVD.DataAccessLayer.Repositories
         }
 
         /// <summary>
-        /// Gets all instances of TEntity type.
+        /// Gets all instances of AVDntity type.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<AVDntity> GetAll()
         {
 
             Logger.InstanceVerbose.LogFunctionEntry(GetType().FullName, "GetAll");
@@ -282,7 +282,7 @@ namespace AVD.DataAccessLayer.Repositories
             return result;
         }
 
-        public virtual TEntity GetByID(object id)
+        public virtual AVDntity GetByID(object id)
         {
             var entity = EntityDbSet.Find(id);
 
@@ -291,7 +291,7 @@ namespace AVD.DataAccessLayer.Repositories
                 // Check authorization for this id
                 if (!Matches(entity))
                     if (ThrowUnauthorizedOnMatchFail)
-                        throw new ForbiddenException("Not allowed to access " + typeof(TEntity).Name + " with id " + id);
+                        throw new ForbiddenException("Not allowed to access " + typeof(AVDntity).Name + " with id " + id);
                     else
                         entity = null;
             }
@@ -299,14 +299,14 @@ namespace AVD.DataAccessLayer.Repositories
             return entity;
         }
 
-        public virtual void Insert(TEntity entity)
+        public virtual void Insert(AVDntity entity)
         {
            
             EntityDbSet.Add(entity);
 
         }
 
-        public virtual void InsertAndSave(TEntity entity)
+        public virtual void InsertAndSave(AVDntity entity)
         {
           
             EntityDbSet.Add(entity);
@@ -319,7 +319,7 @@ namespace AVD.DataAccessLayer.Repositories
         /// It also persists the changes after it is done.
         /// </summary>
         /// <param name="entities"></param>
-        public virtual void InsertRange(IEnumerable<TEntity> entities)
+        public virtual void InsertRange(IEnumerable<AVDntity> entities)
         {
 
             EntityDbSet.AddRange(entities);
@@ -328,12 +328,12 @@ namespace AVD.DataAccessLayer.Repositories
 
         public virtual void Delete(object id)
         {
-            TEntity entityToDelete = EntityDbSet.Find(id);
+            AVDntity entityToDelete = EntityDbSet.Find(id);
 
             Delete(entityToDelete);
         }
 
-        public virtual void Delete(TEntity entityToDelete)
+        public virtual void Delete(AVDntity entityToDelete)
         {
             if (DbContext.Entry(entityToDelete).State == EntityState.Detached)
             {
@@ -363,7 +363,7 @@ namespace AVD.DataAccessLayer.Repositories
             }
         }
 
-        public virtual void Update(TEntity entityToUpdate)
+        public virtual void Update(AVDntity entityToUpdate)
         {
             EntityDbSet.Attach(entityToUpdate);
 
@@ -375,7 +375,7 @@ namespace AVD.DataAccessLayer.Repositories
         /// if there are changes made to this instance of the object
         /// </summary>
         /// <param name="entityToUpdate"></param>
-        public virtual void UpdateIfModified(TEntity entityToUpdate)
+        public virtual void UpdateIfModified(AVDntity entityToUpdate)
         {
             EntityDbSet.Attach(entityToUpdate);
         }
@@ -506,7 +506,7 @@ namespace AVD.DataAccessLayer.Repositories
 
 #if DEBUG
 
-                ApiCallLogger logger = new ApiCallLogger("DB", typeof(TEntity).Name, true);
+                ApiCallLogger logger = new ApiCallLogger("DB", typeof(AVDntity).Name, true);
                 logger.LogRequest(GetEntityChangesToBePersisted);
 
                 retVal = DbContext.SaveChanges(userNameForAuditing);
@@ -572,7 +572,7 @@ namespace AVD.DataAccessLayer.Repositories
 
 
         /// <summary>
-        /// Removes all records from TEntitys table, runs a program generated SQL Query,
+        /// Removes all records from AVDntitys table, runs a program generated SQL Query,
         /// this functions is much more performant than DeleteAll() 
         /// </summary>
         public virtual void DeleteAllUsingTruncateQuery()
@@ -582,9 +582,9 @@ namespace AVD.DataAccessLayer.Repositories
 
             ObjectContext objCtx = ((IObjectContextAdapter)DbContext).ObjectContext;
             var tableName = ((IObjectContextAdapter)DbContext).ObjectContext.MetadataWorkspace.GetItems<EntityContainer>(DataSpace.SSpace).First()
-                .BaseEntitySets.First(meta => meta.ElementType.Name == typeof(TEntity).Name).Table;
+                .BaseEntitySets.First(meta => meta.ElementType.Name == typeof(AVDntity).Name).Table;
 
-            string command = $"TRUNCATE TABLE [{tableName}]";
+            string command = $"TRUNCAAVD TABLE [{tableName}]";
             objCtx.ExecuteStoreCommand(command);
 
             Logger.InstanceVerbose.LogFunctionExit("Repository", "DeleteAllUsingTruncateQuery");
@@ -597,7 +597,7 @@ namespace AVD.DataAccessLayer.Repositories
         /// </summary>
         /// <param name="entities">The entities.</param>
         /// <returns>true if saving of the list raised an exception.</returns>
-        public void BatchInsertList(List<TEntity> entities, int batchSize = 1000)
+        public void BatchInsertList(List<AVDntity> entities, int batchSize = 1000)
         {
            
             bool previousAutoDetectChangesSetting = DbContext.Configuration.AutoDetectChangesEnabled;
@@ -610,7 +610,7 @@ namespace AVD.DataAccessLayer.Repositories
             Logger.InstanceVerbose.Debug("Repository", "BatchInsertList", "Start batch insert loop");
             while (entities.Count > 0)
             {
-                IEnumerable<TEntity> itemsToBeSaved = null;
+                IEnumerable<AVDntity> itemsToBeSaved = null;
 
                 if (entities.Count >= batchSize)
                 {
@@ -646,20 +646,20 @@ namespace AVD.DataAccessLayer.Repositories
         /// Adds the entities in context as batch and saves them all in the database.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        private void AddRangeOfEntitiesToContextAndSave(IEnumerable<TEntity> entities)
+        private void AddRangeOfEntitiesToContextAndSave(IEnumerable<AVDntity> entities)
         {
            
             Logger.InstanceVerbose.Debug(this.GetType().Name,
-                $"AddRangeOfEntitiesToContextAndSave({typeof(TEntity).Name})", "InsertRange BEGIN >>>");
+                $"AddRangeOfEntitiesToContextAndSave({typeof(AVDntity).Name})", "InsertRange BEGIN >>>");
             InsertRange(entities);
             Logger.InstanceVerbose.Debug(this.GetType().Name,
-                $"AddRangeOfEntitiesToContextAndSave({typeof(TEntity).Name})", "InsertRange END >>>");
+                $"AddRangeOfEntitiesToContextAndSave({typeof(AVDntity).Name})", "InsertRange END >>>");
 
             Logger.InstanceVerbose.Debug(this.GetType().Name,
-                $"AddRangeOfEntitiesToContextAndSave({typeof(TEntity).Name})", "BEGIN AddEntitiesToContextAndFlushIfThresholdIsReached");
+                $"AddRangeOfEntitiesToContextAndSave({typeof(AVDntity).Name})", "BEGIN AddEntitiesToContextAndFlushIfThresholdIsReached");
             int savedItems = this.SaveChanges();
             Logger.InstanceVerbose.Debug(this.GetType().Name,
-                $"AddRangeOfEntitiesToContextAndSave({typeof(TEntity).Name})",
+                $"AddRangeOfEntitiesToContextAndSave({typeof(AVDntity).Name})",
                 $"END AddEntitiesToContextAndFlushIfThresholdIsReached of {savedItems} entities");
         }
 
@@ -667,29 +667,29 @@ namespace AVD.DataAccessLayer.Repositories
         /// Determine if an object exixts in the database
         /// </summary>
         /// <returns>true if the object exists</returns>
-        public virtual bool Any(Expression<Func<TEntity, bool>> predicate)
+        public virtual bool Any(Expression<Func<AVDntity, bool>> predicate)
         {
             Logger.InstanceVerbose.LogFunctionEntry(GetType().FullName, "Any");
 
             bool result;
             if (predicate != null)
-                result = DbContext.Set<TEntity>().Any(predicate);
+                result = DbContext.Set<AVDntity>().Any(predicate);
             else
-                result = DbContext.Set<TEntity>().Any();
+                result = DbContext.Set<AVDntity>().Any();
 
             Logger.InstanceVerbose.LogFunctionExit(GetType().FullName, "Any");
             return result;
         }
 
-        public bool AnyFunc(Func<TEntity, bool> predicate)
+        public bool AnyFunc(Func<AVDntity, bool> predicate)
         {
             Logger.InstanceVerbose.LogFunctionEntry(GetType().FullName, "AnyFunc");
 
             bool result;
             if (predicate != null)
-                result = DbContext.Set<TEntity>().Any(predicate);
+                result = DbContext.Set<AVDntity>().Any(predicate);
             else
-                result = DbContext.Set<TEntity>().Any();
+                result = DbContext.Set<AVDntity>().Any();
 
             Logger.InstanceVerbose.LogFunctionExit(GetType().FullName, "AnyFunc");
             return result;
@@ -724,14 +724,14 @@ namespace AVD.DataAccessLayer.Repositories
             Dispose(false);
         }
 
-        protected PagedList<TEntity> GetPaged(IQueryable<TEntity> query, int skip, int take)
+        protected PagedList<AVDntity> GetPaged(IQueryable<AVDntity> query, int skip, int take)
         {
-            var pagedEntityList = new PagedList<TEntity> { TotalResults = query.Count(), Entities = query.Skip(skip).Take(take) };
+            var pagedEntityList = new PagedList<AVDntity> { TotalResults = query.Count(), Entities = query.Skip(skip).Take(take) };
 
             return pagedEntityList;
         }
 
-        public IQueryable<TEntity> GetAsQueryable()
+        public IQueryable<AVDntity> GetAsQueryable()
         {
             return QueryableEntitySet;
         }

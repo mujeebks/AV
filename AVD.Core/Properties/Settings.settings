@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TE.Core.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TE_Core_WvtSharePointReference_Lists" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://my.worldviewtravel.com/_vti_bin/lists.asmx</Value>
+    </Setting>
+    <Setting Name="TE_Core_TravelexInsuranceService_TIServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://test.travelexinsurance.com/TIServices.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

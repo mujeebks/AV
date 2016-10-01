@@ -1,0 +1,1139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Biz_Auth_Login_AccountSetupInvalid" xml:space="preserve">
+    <value>There is an issue with the setup of your account. Please contact the administrator (L:001)</value>
+    <comment>Occurs when the setup in AD is incorrect for a WVS user (e.g. they do not belong to a valid WVS group, not attached to an Office etc) - Resolution -AD</comment>
+  </data>
+  <data name="Biz_Auth_Login_ErrorMappingProviderAccountToLocal" xml:space="preserve">
+    <value>Your account was found in TRAMS however there is an issue bringing your information into TravelEdge ADX. Please contact the system administrator for support. (L:002)</value>
+    <comment>There was a problem with the account mapping from TRAMS to WVS - perhaps the TRAMS groups were not set up properly. Resolution - TRAMS.</comment>
+  </data>
+  <data name="Biz_Auth_Login_MembershipAuthenticationFailed" xml:space="preserve">
+    <value>Login failed - could not validate credentials. Please retry and if you are still encountering a problem, contact your system administrator. (L:003)</value>
+    <comment>Most common case - incorrect username or password - Resolution - User (incorrect info), AD (username or password)</comment>
+  </data>
+  <data name="Biz_Auth_Login_MultipleMatchesOnEmail" xml:space="preserve">
+    <value>There is an issue with the setup of your account. Please contact the system administrator for support. (L:004)</value>
+    <comment>There is more than one account in TRAMS with the given email address. Email addresses need to be unique - Resolution -TRAMS</comment>
+  </data>
+  <data name="Biz_Auth_Login_NoMatchOnEmail" xml:space="preserve">
+    <value>There is an issue with the setup of your account. Please contact the system administrator for support. (L:005)</value>
+    <comment>There isn't an account in TRAMS with a matching primary email. Resolution - TRAMS</comment>
+  </data>
+  <data name="Biz_Auth_Login_ProfileSyncCreateFailedTRAMSUnavailable" xml:space="preserve">
+    <value>Your profile can not be created as TRAMS is down. Please contact the system administrator for support. (L:006)</value>
+    <comment>The connection to TRAMS is down - can not create the profile for the agent. Resolution - IT (Server issue)</comment>
+  </data>
+  <data name="Biz_Auth_Login_ProfileSyncUpdateFailedTRAMSUnavailable" xml:space="preserve">
+    <value>Your profile can not be updated as TRAMS is down. Please contact the system administrator for support. (L:007)</value>
+    <comment>The connection to TRAMS is down - can not update the profile for the agent however we can still let them log in using their existing local account.  Resolution - IT (Server issue)</comment>
+  </data>
+  <data name="Biz_Auth_Login_ProviderNoLongerReturnsAccount" xml:space="preserve">
+    <value>Your account has been deactivated in TRAMS. Please contact the system administrator for support.(L:008)</value>
+    <comment>TRAMS is no longer returning the given account - quite likely it has been deactivated or deleted. Resolution -TRAMS</comment>
+  </data>
+  <data name="Biz_Auth_Login_TC_UserNotInCache" xml:space="preserve">
+    <value>The timeout period for T&amp;C acceptance has expired. Please go back to the login page and try again.</value>
+    <comment>The preauth cookie doesn't have a match in the cache - the most likely explaination is that it has been kicked out of the cache. The timeout for this is 30mins so the user has that long from when they log in to accepting the T&amp;C.</comment>
+  </data>
+  <data name="Biz_Auth_Login_UserNameNotFound" xml:space="preserve">
+    <value>Can not find user. Please contact the system administrator for support.  (L:009)</value>
+    <comment>Occurs when the email address the user types in can not be matched to a username in AD. Resolution - User (incorrect email) or AD (email does not exist)</comment>
+  </data>
+  <data name="Biz_Auth_Reset_CouldNotSendEmail" xml:space="preserve">
+    <value>There was an error sending the email, please try again later.</value>
+    <comment>This not a validation error, there was a system error sending the email so all they can do is try later or contact support.</comment>
+  </data>
+  <data name="Biz_Auth_Reset_PasswordPolicy" xml:space="preserve">
+    <value>The password does not meet the password policy requirements.</value>
+  </data>
+  <data name="Biz_Auth_Reset_TokenExpired" xml:space="preserve">
+    <value>The password reset link has expired.</value>
+  </data>
+  <data name="Biz_CruiseService_NotBookable" xml:space="preserve">
+    <value>The selected cruise service has already been booked.</value>
+  </data>
+  <data name="Biz_Dev_Examples_BusinessException" xml:space="preserve">
+    <value>Could not process due to invalid data.</value>
+  </data>
+  <data name="Biz_FareCode_Invalid" xml:space="preserve">
+    <value>The selected fare code is invalid, please select another one and try again</value>
+    <comment>Selection of cabin failed due to the invalid fare code</comment>
+  </data>
+  <data name="Biz_Invalid_CreditCard" xml:space="preserve">
+    <value>Invalid credit card information was specified for at least one of the payment credit cards.</value>
+    <comment>Validation of the credit card type based on the credit card number failed for at least one of the payment credit cards that were specified in the payment items.</comment>
+  </data>
+  <data name="Biz_Invalid_Currency" xml:space="preserve">
+    <value>Currency has not been provided or is invalid</value>
+  </data>
+  <data name="Biz_Invalid_File" xml:space="preserve">
+    <value>Please select filename without special characters in it.</value>
+    <comment>Notifies the user that the specified filename is not valid due to special characters that prevent the server side parsing.</comment>
+  </data>
+  <data name="Biz_Invalid_NumOfPassengers" xml:space="preserve">
+    <value>Invalid number of passengers</value>
+  </data>
+  <data name="Biz_Invalid_Quote_Status" xml:space="preserve">
+    <value>Unable to complete operation for the quote {0} due to the current quote status: {1}.</value>
+    <comment>The quote items are not eligible for billing due to the current quote status.</comment>
+  </data>
+  <data name="Biz_Invalid_TotalInPayment" xml:space="preserve">
+    <value>The total amount from all the credit cards is not equal to the Total in Trip Payment Summary. Please correct it and try again.</value>
+    <comment>The exception is raised whenever the total amount from all the specified credit cards is not equal to the amount that is presented as total due in the Trip Payment summary.</comment>
+  </data>
+  <data name="Biz_Payments_Amadeus_MultipleCreditCards" xml:space="preserve">
+    <value>Payment with multiple credit cards is unsupported. Please use only one credit card.</value>
+  </data>
+  <data name="Biz_Payments_Amadeus_ValidationMessages" xml:space="preserve">
+    <value>Please check the entry in the following fields: {0}</value>
+  </data>
+  <data name="Biz_Payments_AmountReceivedUnchanged" xml:space="preserve">
+    <value>There was an error processing the payment.</value>
+    <comment>Price booking calls before and after the modify booking call did not equal the payment amount.</comment>
+  </data>
+  <data name="Biz_Payments_BillingDetails_Quote_Status" xml:space="preserve">
+    <value>Unable to complete operation for the quote {0} due to the current quote status: {1}.</value>
+    <comment>The quote items are not eligible for billing due to the current quote status.</comment>
+  </data>
+  <data name="Biz_Payments_Invalid_CreditCard" xml:space="preserve">
+    <value>Invalid credit card type was specified for at least one of the payment credit cards. Please specify a valid credit card type for the payment.</value>
+    <comment>Validation of the credit card type based on the credit card number failed for at least one of the payment credit cards that were specified in the payment items.</comment>
+  </data>
+  <data name="Biz_Payments_PayPal_InsufficientFundsOrDeclined" xml:space="preserve">
+    <value>Transaction was declined or failed due to insufficient funds</value>
+  </data>
+  <data name="Biz_Payments_PayPal_Invalid_Amount" xml:space="preserve">
+    <value>The specified amount is invalid</value>
+  </data>
+  <data name="Biz_Payments_PayPal_Invalid_BillingInfo" xml:space="preserve">
+    <value>The specified Billing Information is invalid</value>
+  </data>
+  <data name="Biz_Payments_PayPal_Invalid_CreditCard_Information" xml:space="preserve">
+    <value>The specified Credit Card details are invalid</value>
+  </data>
+  <data name="Biz_Payments_PayPal_Invalid_CreditCard_Type" xml:space="preserve">
+    <value>The specified Credit Card type is invalid</value>
+  </data>
+  <data name="Biz_Payments_Unsupported_CreditCard" xml:space="preserve">
+    <value>One of the specified credit cards is an unsupported credit card type.</value>
+  </data>
+  <data name="Biz_Quote_AddCruise_InformativePricingMissing" xml:space="preserve">
+    <value>An attempt to get the informative pricing for a quote failed. The quote is in invalid status. Please try creating another one.</value>
+    <comment>Cabin selection when creating the quote failed to provide valid informative pricing for the quote</comment>
+  </data>
+  <data name="Biz_Quote_AddCruise_PassengerPriceBreakdownsMissing" xml:space="preserve">
+    <value>Error adding cruise to quote, it looks like the price server is down, please try again later. If this issue continues, please contact servicedesk@traveledge.com.</value>
+    <comment>Traveler price breakdowns collection is empty, most likley the front ends price booking call to Amadeus failed.</comment>
+  </data>
+  <data name="Biz_Quote_Copy_NotSupportedPostBook" xml:space="preserve">
+    <value>Quote copy is not supported with a booked cruise.</value>
+  </data>
+  <data name="Biz_Quote_Modify_NotSupportedPostBook" xml:space="preserve">
+    <value>Quote modify is not supported with a booked cruise.</value>
+  </data>
+  <data name="Biz_Quote_Modify_PassengerPriceBreakdownsMissing" xml:space="preserve">
+    <value>Error modifying quote, it looks like the price server is down, please try again later. If this issue continues, please contact servicedesk@traveledge.com.</value>
+    <comment>Traveler price breakdowns collection is empty, most likley the front ends price booking call to Amadeus failed.</comment>
+  </data>
+  <data name="Biz_Quote_Reprice_BookedNetRateFare" xml:space="preserve">
+    <value>Repricing booked quotes with net rate fare code is not allowed</value>
+    <comment>An attempt to re-price a booked quote associated with net fare code was made.</comment>
+  </data>
+  <data name="Biz_Quote_Reprice_InformativePricingMissing" xml:space="preserve">
+    <value>An attempt to re-price the selected quote failed due to inability to provide informative pricing. Original quote pricing was preserved.</value>
+  </data>
+  <data name="Biz_Quote_Reprice_MissingTravelers" xml:space="preserve">
+    <value>Please provide list of travelers before issuing the re-pricing action</value>
+  </data>
+  <data name="Biz_Quote_TMT_TripAndProductsSyncFailed_Format" xml:space="preserve">
+    <value>Update in finance system failed for the following items: &lt;br/&gt;{0}&lt;br/&gt;Please contact servicedesk@traveledge.com</value>
+    <comment>An attempt to create or update the quote and related travel services with the trip and the products in TMT failed</comment>
+  </data>
+  <data name="Biz_Quote_UnavailableTravelerPricingBreakdown" xml:space="preserve">
+    <value>Retrieval of detailed price breakdown per traveler failed. Please try again later or with different cabin.</value>
+    <comment>The response from the provider method GetFinalPricingBreakDown failed. It was expected to provide detailed pricing breakdown per traveler for the selected cabin. Potential misconfiguration of the response data in CruisePriceBreakdownDto</comment>
+  </data>
+  <data name="Biz_Reprice_InvalidCruiseServiceState" xml:space="preserve">
+    <value>Reprice can not be performed. The cruise travel service is not in booked or deposit state.</value>
+    <comment>Reprice function, after booking process, only works if the cruise travel service is in booked or deposit state.</comment>
+  </data>
+  <data name="Biz_Trams_ValidationError_Default" xml:space="preserve">
+    <value>There was an error with the communication to TRAMS. Please check your input and contact servicedesk@traveledge.com if you continute to have this problem.</value>
+    <comment>This is returned if there is an issue validating a request being sent to the trams api that the client could possibly solve themselves. It does indicate a error on our side, but possibly not a critical error that would stop the agent in their tracks. This is used on client create but possibly on other areas too.</comment>
+  </data>
+  <data name="Ex_Authentication_Default" xml:space="preserve">
+    <value>Unauthorized or login timed out</value>
+  </data>
+  <data name="Ex_Book_TMTSync" xml:space="preserve">
+    <value>Unable to record the information in TMT, please contact your administrator to look into the issue closely.</value>
+  </data>
+  <data name="Ex_Conflict_Clients_PhoneNumberNotUnique" xml:space="preserve">
+    <value>The phone number for this client is already in use.</value>
+    <comment>The phone number for the client is already in use. This needs to be changed to an unique number so an interfaceid can be generated</comment>
+  </data>
+  <data name="Ex_Conflict_Default" xml:space="preserve">
+    <value>The resource you are trying to add conflicted with an existing resource</value>
+  </data>
+  <data name="Ex_Conflict_Dev_ExampleConflictMessage" xml:space="preserve">
+    <value>There is already a value of {0}. Please choose another.</value>
+  </data>
+  <data name="Ex_CookieMissing" xml:space="preserve">
+    <value>Please ensure you have cookies enabled and try again.</value>
+    <comment>A cookie is missing from the request - user should ensure cookies are on and try again</comment>
+  </data>
+  <data name="Ex_Dev_Examples_TravelEdgeException" xml:space="preserve">
+    <value>A custom internal server error</value>
+  </data>
+  <data name="Ex_Exception_AgentNotFound" xml:space="preserve">
+    <value>Logged-in agent information is not found or is invalid. Please contact servicedesk@traveledge.com to get your agent profile set up correctly.</value>
+    <comment>Logged-in agent's information is not found or is invalid</comment>
+  </data>
+  <data name="Ex_Exception_CruiseLineOperationNotSupported" xml:space="preserve">
+    <value>The operation performed is not supported by the selected cruise line operator</value>
+  </data>
+  <data name="Ex_Exception_CruiseLine_Not_Supported" xml:space="preserve">
+    <value>The selected cruise line is not supported by the system</value>
+    <comment>The selected cruise line is not supported as of the moment.</comment>
+  </data>
+  <data name="Ex_Exception_Default" xml:space="preserve">
+    <value>An error occurred, please try again or contact servicedesk@traveledge.com</value>
+  </data>
+  <data name="Ex_Exception_FileUpload" xml:space="preserve">
+    <value>Unable to persist uploaded file, please try again.</value>
+    <comment>Something bad happened when uploading the client file.</comment>
+  </data>
+  <data name="Ex_Exception_NoResponseFromProvider" xml:space="preserve">
+    <value>No response from provider, please try again.</value>
+    <comment>The request has been sent to provider but has received no response or details about the results of the response.</comment>
+  </data>
+  <data name="Ex_Exception_Payment_Default" xml:space="preserve">
+    <value>Payment cannot be processed at this time, please try again later or contact servicedesk@traveledge.com</value>
+  </data>
+  <data name="Ex_Exception_ProviderError" xml:space="preserve">
+    <value>An error occurred in the provider, please try again or contact servicedesk@traveledge.com</value>
+    <comment>The request has been sent to the provider but received ambiguous response.</comment>
+  </data>
+  <data name="Ex_Exception_SailingError" xml:space="preserve">
+    <value>There is a problem with the selected sailing, please try again or contact servicedesk@traveledge.com</value>
+  </data>
+  <data name="Ex_Exception_SailingMapping" xml:space="preserve">
+    <value>An error occurred on a selection, please try again or contact servicedesk@traveledge.com</value>
+    <comment>The error in this case is related to mapping or retrieving information from the system's database, i.e sailing, occupation, etc.</comment>
+  </data>
+  <data name="Ex_Exception_UserNotFound" xml:space="preserve">
+    <value>Logged-in user information is not found or is invalid.</value>
+    <comment>Logged-in user information is not found or is invalid</comment>
+  </data>
+  <data name="Ex_GeneralProcessingExceptionInOperation" xml:space="preserve">
+    <value>Unable to complete '{0}' operation due to internal server error. Please try again or contact servicedesk@traveledge.com</value>
+    <comment>An internal server error that was not handled as a known exception interrupted the processing of the requested action.
+For {0}, put a descriptive name for the action that is being performed in the method.</comment>
+  </data>
+  <data name="Ex_Invalid_CodeX" xml:space="preserve">
+    <value>Invalid {0} identifier</value>
+    <comment>Server-side was unable to load an instance by the specified identifier or code.</comment>
+  </data>
+  <data name="Ex_Invalid_CruiseTravelService" xml:space="preserve">
+    <value>The Cruise Travel Service  is invalid</value>
+  </data>
+  <data name="Ex_Invalid_Currency" xml:space="preserve">
+    <value>Invalid Currency</value>
+    <comment>an attempt to fetch the associated currency resulted with null instance.</comment>
+  </data>
+  <data name="Ex_Invalid_Payment_Summary" xml:space="preserve">
+    <value>Invalid Payment Summary</value>
+    <comment>payment summary is either null or does not have any payments associated.</comment>
+  </data>
+  <data name="Ex_Invalid_Quote" xml:space="preserve">
+    <value>This quote ID is not valid, please try again with a valid quote ID.</value>
+    <comment>an attempt to load the quote resulted with null instance.</comment>
+  </data>
+  <data name="Ex_NotFound_Default" xml:space="preserve">
+    <value>The requested resource does not exist or can not be found</value>
+  </data>
+  <data name="Ex_Payment_Processing_Default" xml:space="preserve">
+    <value>Unable to process payments. Please try again or contact servicedesk@traveledge.com</value>
+    <comment>General payment processing exception. See the developer message and logs for more deails.</comment>
+  </data>
+  <data name="Ex_Payment_Processing_RecordingToTMTFailed" xml:space="preserve">
+    <value>Payment completed successfully, however, the data was not fully recorded in the finance system. Please contact servicedesk@traveledge.com</value>
+    <comment>Payment through the payment processors completed and TravelEdge database was updated successfully but the recording in TMT failed.</comment>
+  </data>
+  <data name="Ex_Payment_Processing_RecordingToTMTFailed_InvoiceAndVendorPayment" xml:space="preserve">
+    <value>Record to both Invoice and Vendor Payments completed with errors {0}</value>
+    <comment>Both attempts to record invoice and vendor payment failed in TMT</comment>
+  </data>
+  <data name="Ex_Payment_Processing_RecordingToTMTFailed_InvoicePayment" xml:space="preserve">
+    <value>Record to Invoice Payment completed with errors {0}</value>
+    <comment>The attempt to record the invoice payment failed</comment>
+  </data>
+  <data name="Ex_Payment_Processing_RecordingToTMTFailed_VendorPayment" xml:space="preserve">
+    <value>Record to Vendor Payment completed with errors {0}</value>
+    <comment>The attempt to record the vendor payment failed</comment>
+  </data>
+  <data name="Ex_Unauthorized_Default" xml:space="preserve">
+    <value>User does not have access to this resource</value>
+  </data>
+  <data name="Val_Email_Default" xml:space="preserve">
+    <value>The email address entered is invalid, please enter a correct email address.</value>
+    <comment>The email address is not valid</comment>
+  </data>
+  <data name="Val_MaxLengthX_Default" xml:space="preserve">
+    <value>cannot exceed {0} characters</value>
+  </data>
+  <data name="Val_NullInput_Default" xml:space="preserve">
+    <value>This is a required field.</value>
+    <comment>It is unlikely this is the users issue but it is something that UI can fix.</comment>
+  </data>
+  <data name="Val_RangeIntXY_Default" xml:space="preserve">
+    <value>The {0} must be between and {1} or {2}</value>
+  </data>
+  <data name="Val_RegularExpression_PhoneFormat" xml:space="preserve">
+    <value>The phone number is invalid, please enter a valid phone number.</value>
+    <comment>The regex check for a phone number failed. It must contain at least 10 digits.It is used for phone, fax etc numbers that can be saved for a client, agent etc.</comment>
+  </data>
+  <data name="Val_Required_DateFuture" xml:space="preserve">
+    <value>Future date value is required</value>
+  </data>
+  <data name="Val_Required_DatePast" xml:space="preserve">
+    <value>Past date value is required</value>
+  </data>
+  <data name="Val_Required_BirthYearMin" xml:space="preserve">
+    <value>Please specify a date of birth from January 1, 1914 onwards for all passengers.</value>
+    <comment>Traveler's birth year is less than minimum allowed.</comment>
+  </data>
+  <data name="Val_Required_Default" xml:space="preserve">
+    <value>This is a required field</value>
+  </data>
+  <data name="Val_Required_Default_Provider" xml:space="preserve">
+    <value>There are required fields with missing values: {0}</value>
+  </data>
+  <data name="Val_Client_Itin_Email" xml:space="preserve">
+    <value>Hello,&lt;br /&gt;Please find attached the quote for your upcoming trip.&lt;br /&gt;&lt;br /&gt;If you have any questions please give me a call.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;</value>
+  </data>
+  <data name="Val_Invoice_Email" xml:space="preserve">
+    <value>Hello,&lt;br /&gt;Please find attached the invoice for your upcoming trip.&lt;br /&gt;&lt;br /&gt;If you have any questions please give me a call.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;</value>
+  </data>
+  <data name="Email_PayPalCaptureFailed_Body_Format" xml:space="preserve">
+    <value>PayPal Capturing Authorization failed with the following messages: {0}</value>
+    <comment>The format for the email body sent to email to support when PayPal capture fails</comment>
+  </data>
+  <data name="Email_PayPalCaptureFailed_Subject" xml:space="preserve">
+    <value>PayPal Capture Authorization Failed</value>
+    <comment>The subject that will be stated when sending email to support when PayPal capture fails</comment>
+  </data>
+  <data name="Ex_Cancel_TMTSync" xml:space="preserve">
+    <value>Unable to record the information in TMT, please contact your administrator to look into the issue closely.</value>
+  </data>
+  <data name="Biz_Email_Invalid_Recipient" xml:space="preserve">
+    <value>There was a problem with the recipients specified. Please check and try again.</value>
+  </data>
+  <data name="Ex_Email_No_Agent_Email" xml:space="preserve">
+    <value>The agent's email was either not found or setup incorrectly. Please contact servicedesk@traveledge.com.</value>
+  </data>
+  <data name="Ex_Email_No_PDF_Returned" xml:space="preserve">
+    <value>The PDF could not be generated. Please try again later.</value>
+  </data>
+  <data name="Email_ResetPassword_ResetTokenMessage_Body" xml:space="preserve">
+    <value>ADX received a request to reset the password for your
+{0} account.
+
+To reset your password, copy and paste the URL into 
+your browser:
+{1}
+
+
+_____________________________________________________________________________
+
+Please do not reply to this message; it was sent from an unmonitored 
+email address. This message is a service email related to your use 
+of ADX.</value>
+    <comment>{0} is the username/email address
+{1} is the reset URL</comment>
+  </data>
+  <data name="Email_ResetPassword_ResetTokenMessage_Subject" xml:space="preserve">
+    <value>Password Reset Request</value>
+  </data>
+  <data name="Biz_Quote_CabinUnHold" xml:space="preserve">
+    <value>The selected cabin was successfully released with the cruise provider but failed to update the ADX database. Please proceed with the selection of the new cabin since that action will sync up the cruise service with the provider again.</value>
+    <comment>Call to Amadeus completed successfully but removal of the cabin from the associated cruise travel service in ADX database failed. Selection of another cabin will override the existing one, therefore the user was advised to proceed with selection of another cabin.</comment>
+  </data>
+  <data name="Val_Alphanumeric" xml:space="preserve">
+    <value>This field must be alphanumeric.</value>
+  </data>
+  <data name="Biz_FareCode_AirNotAvailable" xml:space="preserve">
+    <value>There are no airfares available for the selected departure airport.</value>
+  </data>
+  <data name="Biz_ReconciliationPayment_PaymentNotSufficient" xml:space="preserve">
+    <value>The payment sent is not sufficient to reconcile the travel service payment discrepancy.</value>
+    <comment>This occurs when the payment sent from the Cruise Payment Reconciliation admin screen is not sufficient.</comment>
+  </data>
+  <data name="Biz_ReconciliationPayment_ZeroAmountPayment" xml:space="preserve">
+    <value>The payment sent for reconciliation is zero</value>
+  </data>
+  <data name="BonVoyage_Email_Body" xml:space="preserve">
+    <value>&lt;p&gt;Enjoy your trip!&lt;/p&gt;
+ 
+&lt;p&gt;If I can be of any further assistance before you travel, please do not hesitate to contact me. 
+My email address and phone numbers can be found below.&lt;/p&gt;
+ 
+&lt;p&gt;Kind regards.&lt;/p&gt;</value>
+  </data>
+  <data name="BonVoyage_Email_Subject" xml:space="preserve">
+    <value>Bon Voyage!</value>
+  </data>
+  <data name="WelcomeHome_Email_Body" xml:space="preserve">
+    <value>&lt;p&gt;Thank you for entrusting me with your recent travel arrangements.  I hope that your journey exceeded your expectations and that you had a wonderful time while you were away.&lt;/p&gt;
+ 
+&lt;p&gt;I would appreciate any comments and feedback about the quality of travel services I arranged for you.&lt;/p&gt;
+ 
+&lt;p&gt;I look forward to helping you plan your next trip.&lt;/p&gt;
+ 
+&lt;p&gt;Kind regards.&lt;/p&gt;</value>
+  </data>
+  <data name="WelcomeHome_Email_Subject" xml:space="preserve">
+    <value>Welcome Home!</value>
+  </data>
+  <data name="BonVoyage_Email_Template" xml:space="preserve">
+    <value>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+    &lt;title&gt;Email Template&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+        @media only screen and (max-device-width: 480px)
+        {
+            body
+            {
+                width: 100% !important;
+            }
+            #logo-image
+            {
+                width: 300px !important;
+            }
+            #body-content, #footer-info
+            {
+                width: 300px !important;
+                margin-left: 20px !important;
+            }
+            #footer-logo
+            {
+                max-height: 0px !important;
+                font-size: 0 !important;
+                display: none !important;
+            }
+            #footer-logo-1
+            {
+                width: 100% !important;
+                float: left !important;
+                text-align: left !important;
+                display: block !important;
+                max-height: 500px !important;
+            }
+        
+            #agent-info
+            {
+                max-height: 0px !important;
+                font-size: 0 !important;
+                display: none !important;
+            }
+            #agent-info-1
+            {
+                width: 100% !important;
+                float: left !important;
+                text-align: center !important;
+                display: block !important;
+                font-size: inherit !important;
+                height: auto !important;
+            }
+            .border
+            {
+                border-bottom: 1px solid #878D8F;
+                margin-left: 0px;
+                padding-top: 10px;
+                margin-right: 20px;
+            }
+            .image-size-auto
+            {
+                height: auto !important;
+                display: block !important;
+                font-size: inherit !important;
+            }
+            #grey-background
+            {
+                background: #4C4D4B !important;
+            }
+            #mobile-cont-padding
+            {
+                padding: 10px 0px 20px 0px;
+                text-align: left;
+                display: block !important;
+                max-height: 300px !important;
+                font-size: inherit !important;
+            }
+            .padding-top-10
+            {
+                padding-top: 10px;
+            }
+            #logo-mobile-con
+            {
+                display: block !important;
+                max-height: 120px !important;
+            }
+            #mail-icon
+            {
+                max-height: 20px !important;
+                max-width: 25px !important;
+            }
+            #phone-icon
+            {
+                max-height: 21px !important;
+                max-width: 21px !important;
+            }
+            #mobile-icon
+            {
+                max-height: 19px !important;
+                max-width: 17px !important;
+            }
+            #home-icon
+            {
+                max-height: 19px !important;
+                max-width: 14px !important;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body style="padding: 0px; margin: 0px;"&gt;
+    &lt;div style="padding: 0px; margin: 0px; background: #F7F9FA; font-family: Open Sans,Helvetica Neue,Arial,sans-serif;
+        width: 100%; text-align: center" id="content-width"&gt;
+        &lt;div style="background: #899092; height: 7px;"&gt;
+        &lt;/div&gt;
+        &lt;div style="width: 600px; text-align: left"&gt;
+            &lt;div style="padding-top: 90px; padding-left: 10px;"&gt;
+                &lt;img src="RELATIVEPATH/Content/images/emails/bon-voyage.png" id="logo-image" /&gt;
+            &lt;/div&gt;
+            &lt;div style="color: #858C8E; padding-top: 82px; text-align: left; padding-left: 10px;"
+                id="body-content"&gt;
+                EMAILBODY
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style="padding-top: 84px;"&gt;
+            &lt;div style="border-top: 1px solid #8D8D8D;"&gt;
+            &lt;/div&gt;
+            &lt;div style="background: #4C4D4B !important;" id="grey-background"&gt;
+                &lt;div style="width: 600px;" id="footer-info"&gt;
+                    &lt;div style="width: 50%; float: right; padding-top: 10px;" id="footer-logo-1"&gt;
+                        &lt;img src="RELATIVEPATH/Content/images/emails/wvt-logo-small.png" style="width: 150px;
+                            max-height: 0px;" id="logo-mobile-con" /&gt;
+                        &lt;div class="border"&gt;
+                        &lt;/div&gt;
+                        &lt;div style="color: #F9F9F9;"&gt;
+                            &lt;div id="mobile-cont-padding" style="max-height: 0px; font-size: 0px;"&gt;
+                                &lt;div style="display:none;"&gt;
+                                    &lt;span style="width: 30px; float: left;"&gt;
+                                        &lt;img src="RELATIVEPATH/Content/images/emails/email-img-email.png" style="max-height: 0px;
+                                            font-size: 0; display: none" class="image-size-auto" id="mail-icon" /&gt;&lt;/span&gt;MAIL
+                                    &lt;div class="border"&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="padding-top-10"&gt;
+                                        &lt;span style="width: 30px; float: left;"&gt;
+                                            &lt;img src="RELATIVEPATH/Content/images/emails/email-img-telephone.png" style="max-height: 0px;
+                                                font-size: 0;" class="image-size-auto" id="phone-icon" /&gt;&lt;/span&gt;PHONENO
+                                        &lt;div class="border"&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="padding-top-10"&gt;
+                                        &lt;span style="width: 30px; float: left;"&gt;
+                                            &lt;img src="RELATIVEPATH/Content/images/emails/email-img-iphone.png" style="max-height: 0px;
+                                                font-size: 0;" class="image-size-auto" id="mobile-icon" /&gt;&lt;/span&gt;MOBILENO
+                                    &lt;/div&gt;
+                                    &lt;div class="border"&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="padding-top-10"&gt;
+                                        &lt;span style="width: 30px; float: left;"&gt;
+                                            &lt;img src="RELATIVEPATH/Content/images/emails/email-img-home.png" style="max-height: 0px;
+                                                font-size: 0;" class="image-size-auto" id="home-icon" /&gt;&lt;/span&gt; &lt;span style="width: 200px;
+                                                    float: left;"&gt;ADDRESS1
+                                                    &lt;br /&gt;
+                                                    ADDRESS2&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div style="clear: both"&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div style="clear: both"&gt;
+                    &lt;/div&gt;
+                    &lt;div style="width: 50%; float: left;" id="agent-info"&gt;
+                        &lt;div style="color: #F9F9F9; padding-left: 10px;"&gt;
+                            &lt;div style="padding: 20px 0px 20px 0px; text-align: left;"&gt;
+                                &lt;div&gt;
+                                    MAIL&lt;/div&gt;
+                                &lt;div&gt;
+                                    PHONENO
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    MOBILENO
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    ADDRESS1
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    ADDRESS2
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div style="width: 50%; float: right; padding-top: 10px;" id="footer-logo"&gt;
+                        &lt;img src="RELATIVEPATH/Content/images/emails/wvt-logo-small.png" style="width: 300px;" /&gt;
+                    &lt;/div&gt;
+                    &lt;div style="clear: both"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div style="clear: both"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div style="clear: both"&gt;
+            &lt;/div&gt;
+            &lt;div style="border-bottom: 1px solid #787D7E;"&gt;
+            &lt;/div&gt;
+            &lt;div style="height: 5px; background: #899092;"&gt;
+            &lt;/div&gt;
+            &lt;div style="clear: both"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="WelcomeHome_Email_Template" xml:space="preserve">
+    <value>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+    &lt;title&gt;Email Template&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+        @media only screen and (max-device-width: 480px)
+        {
+            body
+            {
+                width: 100% !important;
+            }
+            #logo-image
+            {
+                width: 300px !important;
+            }
+            #body-content, #footer-info
+            {
+                width: 300px !important;
+                margin-left: 20px !important;
+            }
+            #footer-logo
+            {
+                max-height: 0px !important;
+                font-size: 0 !important;
+                display: none !important;
+            }
+            #footer-logo-1
+            {
+                width: 100% !important;
+                float: left !important;
+                text-align: left !important;
+                display: block !important;
+                max-height: 500px !important;
+            }
+        
+            #agent-info
+            {
+                max-height: 0px !important;
+                font-size: 0 !important;
+                display: none !important;
+            }
+            #agent-info-1
+            {
+                width: 100% !important;
+                float: left !important;
+                text-align: center !important;
+                display: block !important;
+                font-size: inherit !important;
+                height: auto !important;
+            }
+            .border
+            {
+                border-bottom: 1px solid #878D8F;
+                margin-left: 0px;
+                padding-top: 10px;
+                margin-right: 20px;
+            }
+            .image-size-auto
+            {
+                height: auto !important;
+                display: block !important;
+                font-size: inherit !important;
+            }
+            #grey-background
+            {
+                background: #4C4D4B !important;
+            }
+            #mobile-cont-padding
+            {
+                padding: 10px 0px 20px 0px;
+                text-align: left;
+                display: block !important;
+                max-height: 300px !important;
+                font-size: inherit !important;
+            }
+            .padding-top-10
+            {
+                padding-top: 10px;
+            }
+            #logo-mobile-con
+            {
+                display: block !important;
+                max-height: 120px !important;
+            }
+            #mail-icon
+            {
+                max-height: 20px !important;
+                max-width: 25px !important;
+            }
+            #phone-icon
+            {
+                max-height: 21px !important;
+                max-width: 21px !important;
+            }
+            #mobile-icon
+            {
+                max-height: 19px !important;
+                max-width: 17px !important;
+            }
+            #home-icon
+            {
+                max-height: 19px !important;
+                max-width: 14px !important;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body style="padding: 0px; margin: 0px;"&gt;
+    &lt;div style="padding: 0px; margin: 0px; background: #F7F9FA; font-family: Open Sans,Helvetica Neue,Arial,sans-serif;
+        width: 100%; text-align: center" id="content-width"&gt;
+        &lt;div style="background: #899092; height: 7px;"&gt;
+        &lt;/div&gt;
+        &lt;div style="width: 600px; text-align: left"&gt;
+            &lt;div style="padding-top: 90px; padding-left: 10px;"&gt;
+                &lt;img src="RELATIVEPATH/Content/images/emails/welcome-home.png" id="logo-image" /&gt;
+            &lt;/div&gt;
+            &lt;div style="color: #858C8E; padding-top: 82px; text-align: left; padding-left: 10px;"
+                id="body-content"&gt;
+                EMAILBODY
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style="padding-top: 84px;"&gt;
+            &lt;div style="border-top: 1px solid #8D8D8D;"&gt;
+            &lt;/div&gt;
+            &lt;div style="background: #4C4D4B !important;" id="grey-background"&gt;
+                &lt;div style="width: 600px;" id="footer-info"&gt;
+                    &lt;div style="width: 50%; float: right; padding-top: 10px;" id="footer-logo-1"&gt;
+                        &lt;img src="RELATIVEPATH/Content/images/emails/wvt-logo-small.png" style="width: 150px;
+                            max-height: 0px;" id="logo-mobile-con" /&gt;
+                        &lt;div class="border"&gt;
+                        &lt;/div&gt;
+                        &lt;div style="color: #F9F9F9;"&gt;
+                            &lt;div id="mobile-cont-padding" style="max-height: 0px; font-size: 0px;"&gt;
+                                &lt;div style="display:none;"&gt;
+                                    &lt;span style="width: 30px; float: left;"&gt;
+                                        &lt;img src="RELATIVEPATH/Content/images/emails/email-img-email.png" style="max-height: 0px;
+                                            font-size: 0; display: none" class="image-size-auto" id="mail-icon" /&gt;&lt;/span&gt;MAIL
+                                    &lt;div class="border"&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="padding-top-10"&gt;
+                                        &lt;span style="width: 30px; float: left;"&gt;
+                                            &lt;img src="RELATIVEPATH/Content/images/emails/email-img-telephone.png" style="max-height: 0px;
+                                                font-size: 0;" class="image-size-auto" id="phone-icon" /&gt;&lt;/span&gt;PHONENO
+                                        &lt;div class="border"&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="padding-top-10"&gt;
+                                        &lt;span style="width: 30px; float: left;"&gt;
+                                            &lt;img src="RELATIVEPATH/Content/images/emails/email-img-iphone.png" style="max-height: 0px;
+                                                font-size: 0;" class="image-size-auto" id="mobile-icon" /&gt;&lt;/span&gt;MOBILENO
+                                    &lt;/div&gt;
+                                    &lt;div class="border"&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="padding-top-10"&gt;
+                                        &lt;span style="width: 30px; float: left;"&gt;
+                                            &lt;img src="RELATIVEPATH/Content/images/emails/email-img-home.png" style="max-height: 0px;
+                                                font-size: 0;" class="image-size-auto" id="home-icon" /&gt;&lt;/span&gt; &lt;span style="width: 200px;
+                                                    float: left;"&gt;ADDRESS1
+                                                    &lt;br /&gt;
+                                                    ADDRESS2&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div style="clear: both"&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div style="clear: both"&gt;
+                    &lt;/div&gt;
+                    &lt;div style="width: 50%; float: left;" id="agent-info"&gt;
+                        &lt;div style="color: #F9F9F9; padding-left: 10px;"&gt;
+                            &lt;div style="padding: 20px 0px 20px 0px; text-align: left;"&gt;
+                                &lt;div&gt;
+                                    MAIL&lt;/div&gt;
+                                &lt;div&gt;
+                                    PHONENO
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    MOBILENO
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    ADDRESS1
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    ADDRESS2
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div style="width: 50%; float: right; padding-top: 10px;" id="footer-logo"&gt;
+                        &lt;img src="RELATIVEPATH/Content/images/emails/wvt-logo-small.png" style="width: 300px;" /&gt;
+                    &lt;/div&gt;
+                    &lt;div style="clear: both"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div style="clear: both"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div style="clear: both"&gt;
+            &lt;/div&gt;
+            &lt;div style="border-bottom: 1px solid #787D7E;"&gt;
+            &lt;/div&gt;
+            &lt;div style="height: 5px; background: #899092;"&gt;
+            &lt;/div&gt;
+            &lt;div style="clear: both"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="Ex_Exception_ExcursionPastOfferedState" xml:space="preserve">
+    <value>The Shore Excursion cannot be removed any more.</value>
+    <comment>The excursion has been sent to TMT and cannot be removed from ADX.</comment>
+  </data>
+  <data name="Ex_CommissionService_Default" xml:space="preserve">
+    <value>There is a problem in retrieving commission information</value>
+  </data>
+  <data name="Biz_Quote_AddAir_PassengerPriceBreakdownsMissing" xml:space="preserve">
+    <value>Error adding air to quote, it looks like the price server is down, please try again later. If this issue continues, please contact servicedesk@traveledge.com.</value>
+  </data>
+  <data name="Biz_Quote_AirMissingTravelers" xml:space="preserve">
+    <value>The Air Trip does not have any assigned travelers, please assign travelers before booking.</value>
+  </data>
+  <data name="Val_ShoreEx_Email" xml:space="preserve">
+    <value>Hello,&lt;br /&gt;&lt;br /&gt;Please find attached a catalog outlining the shore excursions available with your cruise.&lt;br /&gt;&lt;br /&gt;We provide a wide variety of exciting, appealing, and enriching shore excursions at prices that are typically lower than those of the cruise lines...&lt;br/&gt;&lt;br/&gt;Excursions sell out quickly - please get in touch with me to reserve your spot.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;</value>
+  </data>
+  <data name="Biz_Quote_PlanningFees_AlreadyPaid" xml:space="preserve">
+    <value>Planning fees can not be editied once paid for.</value>
+  </data>
+  <data name="Biz_Quote_PlanningFees_TripHasStarted" xml:space="preserve">
+    <value>Planning fees can not be editied once the trip has started.</value>
+  </data>
+  <data name="Biz_PlanningFee_CannotCancel" xml:space="preserve">
+    <value>This service can no longer be cancelled.</value>
+  </data>
+  <data name="Biz_Quote_PassengersCannotBeAssignedToNonOfferedTravelServices" xml:space="preserve">
+    <value>Passengers cannot be added or removed to services that have already been booked.</value>
+    <comment>Displayed if any travel service is not in offered or requote state.</comment>
+  </data>
+  <data name="Ex_Commission_NotRetrieved" xml:space="preserve">
+    <value>Commission information was not retrieved successfully. Please try again or contact servicedesk@traveledge.com </value>
+    <comment>There was an issue in retrieving commission values from the Commission Service API.</comment>
+  </data>
+  <data name="Biz_Quote_AirRepriceExpired" xml:space="preserve">
+    <value>There was a problem retrieving the air reprice details, please try again or contact support.</value>
+  </data>
+  <data name="Biz_Admin_Groups_UnsupportedFileType" xml:space="preserve">
+    <value>The file you have selected is not supported</value>
+  </data>
+  <data name="Biz_Air_NoPricesAvailable" xml:space="preserve">
+    <value>No prices are available for the selected flights, please try another selection.</value>
+  </data>
+  <data name="Ex_Exception_Client_CurrentStateInvalid" xml:space="preserve">
+    <value>There was a problem identifying the updates to make for this client. Try again by firstly closing the current view and searching for the client.</value>
+    <comment>We could not load the previous state of the client object, or the version of the state dto no longer matches that of what we expect (due to stale data, dbcache being cleared, updates to schema or client model)</comment>
+  </data>
+  <data name="Biz_Auth_Login_AccountDisabled" xml:space="preserve">
+    <value>Your account is currently disabled.  Please contact an administrator.</value>
+    <comment>Occurs with IsApproved() = false for the MembershipUser object</comment>
+  </data>
+  <data name="Biz_Quote_Travelers_CompanionsOnQuoteWithoutClient" xml:space="preserve">
+    <value>Can not have companions on a quote without a contact</value>
+    <comment>A save or update was attempted for companions associated with a quote that did not have a contact</comment>
+  </data>
+  <data name="Biz_Quote_TravelerUpdate_ValidatingUpdatesAndChangeServiceStatusFailed" xml:space="preserve">
+    <value>Traveler updates can not be applied as it affects services that can not be changed. E.g. Ones that are already booked.</value>
+  </data>
+  <data name="Biz_Client_CompanionSave_NonTramsSavingIssue" xml:space="preserve">
+    <value>There was an issue saving updates to ClientBase. Not all of your changes may be saved.</value>
+  </data>
+  <data name="Biz_Client_CompanionSave_CompanionNoLongerExists" xml:space="preserve">
+    <value>This companion no longer exists in ClientBase thus updates can not be made.</value>
+  </data>
+  <data name="Biz_Client_CompanionSave_ExternalSystemIsDown" xml:space="preserve">
+    <value>ClientBase is unavailable at this time. Only limited client and companion functionality will be available.</value>
+  </data>
+  <data name="Biz_Quote_Cruise_NewTravelersAddedOnFCONotImplemented" xml:space="preserve">
+    <value>Adding new travelers is not supported here. Please select existing travelers and companions or add a new one on the itinerary screen before trying again.</value>
+  </data>
+  <data name="Val_Air_NamesTooLong" xml:space="preserve">
+    <value>The names of the passengers are too long to be truncated sufficiently to allow the booking process to complete successfully.</value>
+  </data>
+  <data name="Biz_Quote_Companions_MultipleProfilesOnSameQuote" xml:space="preserve">
+    <value>Each existing traveler can only occupy one traveler block.</value>
+  </data>
+  <data name="Biz_Air_AlreadyHaveSeatSelection" xml:space="preserve">
+    <value>A seat has already been selected for {0} {1} on the {2} - {3} flight.</value>
+  </data>
+  <data name="Biz_CruiseTravelService_InvalidPastPassengerNumber" xml:space="preserve">
+    <value>An Invalid Past Passenger number has been entered. Please go back to the Travel Service Page and make the necessary changes.</value>
+  </data>
+  <data name="Biz_Cruise_TravelService_RequoteState" xml:space="preserve">
+    <value>Travel Service is in Requote state. Please return to the Travel Service page and perform a requote of the cruise travel service.</value>
+  </data>
+  <data name="Biz_Client_NotAvailableDueToBrokenClient" xml:space="preserve">
+    <value>This client needs to be associated with a Family Member before using in aDX. Please ensure in Client Base that the first and last name of the client matches the primary family member.</value>
+  </data>
+  <data name="Ex_Air_HoldExpired" xml:space="preserve">
+    <value>The hold for the specified price has expired, please reprice to confirm if the price is still available.</value>
+  </data>
+  <data name="Ex_SupportTicket_NotCreated" xml:space="preserve">
+    <value>The support ticket was not sent succesfully to the support team, contact servicedesk@traveledge.com.</value>
+  </data>
+  <data name="Ex_SupportTicket_NotFound" xml:space="preserve">
+    <value>The support ticket for the travel service was not found and not updated in the support ticket system. Please contact servicedesk@traveledge.com.</value>
+  </data>
+  <data name="Biz_Air_PaymentAmountDoesNotMatchFares" xml:space="preserve">
+    <value>The payment amounts do not match the total fare for each passenger.</value>
+  </data>
+  <data name="Ex_SupportTicket_NotUpdated" xml:space="preserve">
+    <value>The support ticket was not updated succesfully to the support team, contact servicedesk@traveledge.com.</value>
+  </data>
+  <data name="Val_ReadOnly" xml:space="preserve">
+    <value>cannot be changed.</value>
+  </data>
+  <data name="Biz_Auth_Login_NonPrimaryAgentProfileReturned" xml:space="preserve">
+    <value>There is an issue with the setup of your account. Please contact the system administrator for support. (L:010)</value>
+    <comment>The account isn't the primary one of the agent - the GROUPNAME in trams for this primary account is not set. This could be an indiciation of a bug on the email search code on the trams ws side.</comment>
+  </data>
+  <data name="Ex_Clients_SetPrimaryCompanion" xml:space="preserve">
+    <value>There was an error in updating this clients profile in ClientBase. Please try again or contact servicedesk@traveledge.com.</value>
+    <comment>Occurs when a call to the primary companion update API was made and it returned a failure.</comment>
+  </data>
+  <data name="Biz_Air_CannotCancel" xml:space="preserve">
+    <value>This service can no longer be cancelled.</value>
+  </data>
+  <data name="Biz_Pnr_ErrorReadingPnr" xml:space="preserve">
+    <value>There was an error reading the PNR. Please try again later or contact your administrator to look into the issue closely.</value>
+  </data>
+  <data name="Biz_Cruise_HoldFailed" xml:space="preserve">
+    <value>The selected cabin could not be held, please try again.</value>
+  </data>
+  <data name="Biz_Quote_AddingServicesFailed" xml:space="preserve">
+    <value>There was an issue when adding one or more services to your itinerary. Please check the itinerary and retry the missing services.</value>
+  </data>
+  <data name="Biz_Finance_Meddling_Agents" xml:space="preserve">
+    <value>This reservation has been updated in ClientBase and thus it can no longer be managed from aDX.  Please use ClientBase for the ongoing management of this travel service.</value>
+    <comment>An agent has touched this travel service in ClientBase, and could not be updated/managed from  aDX</comment>
+  </data>
+  <data name="Biz_Finance_Recording_Failed" xml:space="preserve">
+    <value>There was an issue updating the reservation and/or creating invoices in ClientBase. Please contact servicedesk@traveledge.com for assistance.</value>
+    <comment>The recording of the travel service details into the finance system was not successful</comment>
+  </data>
+  <data name="Biz_Finance_CommissionInvoiceCouldNotBeCreatedCommissionReverted" xml:space="preserve">
+    <value>There was an issue creating an invoice to track the change in commission. Please try again or contact servicedesk@traveledge.com for assistance.</value>
+  </data>
+  <data name="Biz_CruiseModfiy_ModificationFailed" xml:space="preserve">
+    <value>Your changes to the cruise could not be saved, please try again.</value>
+  </data>
+  <data name="Biz_CruiseModify_SessionExpired" xml:space="preserve">
+    <value>Your changes to the cruise could not be saved, please try again.</value>
+  </data>
+  <data name="Biz_External_MissingBookedDetails" xml:space="preserve">
+    <value>Confirmation number and booked date are required for Booked services.</value>
+  </data>
+  <data name="Biz_Air_SeatMapNotSupported" xml:space="preserve">
+    <value>The selected airline does not support seat selection via some channels for this flight. Please attempt seat selection on the airline website.</value>
+  </data>
+  <data name="Biz_Air_NoSeatAvailability" xml:space="preserve">
+    <value>You have requested invalid flight information. Please check the details provided and try again.</value>
+  </data>
+  <data name="Biz_Air_CannotUseCryptic" xml:space="preserve">
+    <value>This service cannot use the cryptic emulator.</value>
+  </data>
+  <data name="Biz_AirModify_AutoTicketingFailed" xml:space="preserve">
+    <value>Autoticketing failed and after-hours ticketing fees are in-effect, confirm if flight should be submitted for ticketing.</value>
+  </data>
+  <data name="Welcome_Adx_Email_Body" xml:space="preserve">
+    <value>Welcome to aDX. Please paste the link below into your browser to access the system for the first time: {0}
+
+(Note: after this first time accessing aDX, you just need to go to https://adx.traveledge.com to log in.)
+
+You'll be asked to create a password, and to review and accept the terms and conditions of use for the site, and you are on your way to search and book travel using the world's #1 agent experience! 
+_____________________________________________________________________________
+
+Please do not reply to this message; it was sent from an unmonitored 
+email address. This message is a service email related to your use 
+of ADX.</value>
+  </data>
+  <data name="Welcome_Adx_Email_Subject" xml:space="preserve">
+    <value>Welcome to aDX!</value>
+  </data>
+  <data name="Biz_Quote_AgentFeeNotAccepted" xml:space="preserve">
+    <value>There is a fee associated with this request. You need to refresh this page and accept the fee before it can be processed.</value>
+    <comment>Edge case - the agent has not accepted the fee on the UI. This should only happen when the data in the back-end is more up to date than what is displayed to the agent.</comment>
+  </data>
+  <data name="Val_Client_Itin_Email_Booked" xml:space="preserve">
+    <value>Hello,&lt;br /&gt;Please find attached details for your itinerary.&lt;br /&gt;&lt;br /&gt;If you have any questions please give me a call.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;</value>
+  </data>
+  <data name="Biz_Air_AddTraveler_Max_Length_Validation" xml:space="preserve">
+    <value>Could not truncate passenger names without losing details.</value>
+  </data>
+  <data name="Biz_Air_NoSeatAvailabilityTryAllSegments" xml:space="preserve">
+    <value>Flight Information for the flight is not available as entered. Please check the details provided and try again. If the flight is a code-share then please enter all flights before checking for booking class availability.</value>
+  </data>
+  <data name="Biz_CruiseLine_Cabin_Availability" xml:space="preserve">
+    <value>This cruise does not support this function.</value>
+  </data>
+  <data name="Biz_Cruise_Invalid_Loyalty_Number" xml:space="preserve">
+    <value>Invalid Loyalty Number</value>
+  </data>
+  <data name="Biz_Quote_TravelerWithSameNameExists" xml:space="preserve">
+    <value>{0} already exists as a traveler on the quote. Use the companion button to select the existing traveler for this booking.</value>
+  </data>
+  <data name="Biz_AirModify_OneOrMoreFlightsNoLongerAvailable" xml:space="preserve">
+    <value>One or more of the selected flights are no longer available, please choose new flights and try again.</value>
+  </data>
+  <data name="Biz_Invoice_NotSupportedByAdxViewer" xml:space="preserve">
+    <value>This invoice is not supported for viewing or printing.</value>
+  </data>
+</root>

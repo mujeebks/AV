@@ -5,46 +5,46 @@ using System.Linq.Expressions;
 
 namespace AVD.DataAccessLayer.Repositories
 {
-    public interface IRepository<TEntity> : IDisposable, IDeleteRepository where TEntity : class
+    public interface IRepository<AVDntity> : IDisposable, IDeleteRepository where AVDntity : class
     {
-        IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "");
+        IEnumerable<AVDntity> Get(Expression<Func<AVDntity, bool>> filter,
+            Func<IQueryable<AVDntity>, IOrderedQueryable<AVDntity>> orderBy = null, string includeProperties = "");
 
-        IEnumerable<TEntity> GetAll();
+        IEnumerable<AVDntity> GetAll();
 
-        TEntity GetByID(object id);
+        AVDntity GetByID(object id);
 
-        void BatchInsertList(List<TEntity> items, int batchSize = 1000);
+        void BatchInsertList(List<AVDntity> items, int batchSize = 1000);
 
-        void Insert(TEntity entity);
+        void Insert(AVDntity entity);
 
-        void InsertAndSave(TEntity entity); //for perf fix
+        void InsertAndSave(AVDntity entity); //for perf fix
 
-        TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate = null);
+        AVDntity FirstOrDefault(Expression<Func<AVDntity, bool>> predicate = null);
 
-        TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
+        AVDntity SingleOrDefault(Expression<Func<AVDntity, bool>> predicate);
 
-        TEntity First(Expression<Func<TEntity, bool>> predicate = null);
+        AVDntity First(Expression<Func<AVDntity, bool>> predicate = null);
 
-        TEntity Single(Expression<Func<TEntity, bool>> predicate);
+        AVDntity Single(Expression<Func<AVDntity, bool>> predicate);
 
         [Obsolete]
-        TEntity FirstOrDefaultFunc(Func<TEntity, bool> predicate = null);
+        AVDntity FirstOrDefaultFunc(Func<AVDntity, bool> predicate = null);
         
-        TVal Max<TVal>(Expression<Func<TEntity, TVal>> func);
+        TVal Max<TVal>(Expression<Func<AVDntity, TVal>> func);
 
         void Delete(object id);
 
-        void Delete(TEntity entityToDelete);
+        void Delete(AVDntity entityToDelete);
 
         void DeleteEntityList(IEnumerable<BaseModel> entities);
 
-        void Update(TEntity entityToUpdate);
+        void Update(AVDntity entityToUpdate);
 
-        bool Any(Expression<Func<TEntity, bool>> predicate);
+        bool Any(Expression<Func<AVDntity, bool>> predicate);
 
         [Obsolete]
-        bool AnyFunc(Func<TEntity, bool> predicate);
+        bool AnyFunc(Func<AVDntity, bool> predicate);
 
         int SaveChanges();
 
@@ -53,10 +53,10 @@ namespace AVD.DataAccessLayer.Repositories
         /// Creates an blank instance of this type that can be navigated.
         /// </summary>
         /// <returns></returns>
-        TEntity Create();
+        AVDntity Create();
 
 
         // Be cautious when using this as it's a leaky abstraction
-        IQueryable<TEntity> GetAsQueryable();
+        IQueryable<AVDntity> GetAsQueryable();
     }
 }

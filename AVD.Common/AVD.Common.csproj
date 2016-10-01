@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -42,10 +46,19 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.1.603\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis.DataTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.DataTypes.1.0.0.1\lib\net45\StackExchange.Redis.DataTypes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,15 +67,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\DoNotLogApiContentAttribute.cs" />
+    <Compile Include="Attributes\LookupDtoAttribute.cs" />
     <Compile Include="Auth\AclUtility.cs" />
     <Compile Include="Auth\EMRMIdentityBase.cs" />
+    <Compile Include="Auth\AVDIdentityBase.cs" />
     <Compile Include="Auth\UriAclEntryDto.cs" />
+    <Compile Include="Caching\CachedItemKey.cs" />
+    <Compile Include="Caching\CachedItemKeyTypeConverter.cs" />
+    <Compile Include="Caching\CachingManager.cs" />
+    <Compile Include="Caching\ICachingManager.cs" />
+    <Compile Include="Caching\InMemoryAndPersistentCacheManager.cs" />
+    <Compile Include="Caching\NoCacheCachingManager.cs" />
+    <Compile Include="Caching\RedisPersistentCacheManager.cs" />
+    <Compile Include="Configuration\AutoMapperConfigBase.cs" />
+    <Compile Include="Configuration\ConfigurationHelper.cs" />
+    <Compile Include="Configuration\EmailConfigSettings.cs" />
+    <Compile Include="EngineBase.cs" />
     <Compile Include="Exceptions\ApiRequestException.cs" />
     <Compile Include="Exceptions\BusinessException.cs" />
     <Compile Include="Exceptions\ConflictException.cs" />
     <Compile Include="Exceptions\DynamicProviderException.cs" />
     <Compile Include="Exceptions\ErrorMessageTypes.cs" />
     <Compile Include="Exceptions\ForbiddenException.cs" />
+    <Compile Include="Exceptions\InformatonException.cs" />
     <Compile Include="Exceptions\JSTravelEdgeException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Exceptions\ProviderException.cs" />
@@ -70,17 +98,37 @@
     <Compile Include="Exceptions\RequestValidationException.cs" />
     <Compile Include="Exceptions\TravelEdgeException.cs" />
     <Compile Include="Exceptions\UnauthorizedException.cs" />
+    <Compile Include="Helpers\BadWordsChecker.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\GraphTraversalHelper.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="IPersistentCacheManager.cs" />
     <Compile Include="Logging\ApiCallLogger.cs" />
     <Compile Include="Configuration\ConfigSettingsBase.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\LoggingConfigSettings.cs" />
+    <Compile Include="Primitives\CurrencyFormat.cs" />
+    <Compile Include="Primitives\CurrencyTypes.cs" />
+    <Compile Include="Primitives\DateRange.cs" />
+    <Compile Include="Primitives\DaySpan.cs" />
+    <Compile Include="Primitives\GenericItemDto.cs" />
+    <Compile Include="Primitives\AVDCurrency.cs" />
+    <Compile Include="Primitives\AVDMoney.cs" />
+    <Compile Include="Primitives\AVDPassword.cs" />
+    <Compile Include="Primitives\AVDSearchQualifier.cs" />
+    <Compile Include="Primitives\AVDStringBase.cs" />
+    <Compile Include="Primitives\TypeConverters\AVDStringTypeConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Version\VersionConfigSettings.cs" />
+    <Compile Include="Version\VersionInformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Helpers\enBadWords.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

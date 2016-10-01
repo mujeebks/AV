@@ -39,6 +39,11 @@ namespace AVD.Common.Exceptions
         /// <summary>
         /// Causes YELLOW error, Forbidden
         /// </summary>
-        Forbidden = 7
+        Forbidden = 7,
+
+        /// <summary>
+        /// Causes BLUE message. Let's execution continue
+        /// </summary>
+        Informational = 8
     }
 }

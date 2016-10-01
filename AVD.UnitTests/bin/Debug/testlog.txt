@@ -1,0 +1,82 @@
+2016-08-28 01:38:01,978 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-28 01:38:01,987 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Entry
+2016-08-28 01:38:01,988 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Exit
+2016-08-28 01:39:17,029 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-28 01:39:17,035 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Entry
+2016-08-28 01:39:17,036 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Exit
+2016-08-28 01:39:20,112 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Reset Message: Entry
+2016-08-28 01:39:20,112 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Reset Message: Exit
+2016-08-28 01:39:20,113 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 01:39:20,114 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 01:40:22,349 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-28 01:40:22,357 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Entry
+2016-08-28 01:40:22,357 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Exit
+2016-08-28 01:40:28,664 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Reset Message: Entry
+2016-08-28 01:40:28,668 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Reset Message: Exit
+2016-08-28 01:40:30,520 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 01:40:31,102 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 01:41:14,351 DEBUG - 00000000-0000-0000-0000-000000000000:14 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-28 01:41:14,358 DEBUG - 00000000-0000-0000-0000-000000000000:14 ClassName: AutoMapperConfiguration MethodName: Configure Message: Entry
+2016-08-28 01:41:14,358 DEBUG - 00000000-0000-0000-0000-000000000000:14 ClassName: AutoMapperConfiguration MethodName: Configure Message: Exit
+2016-08-28 01:41:16,854 DEBUG - 00000000-0000-0000-0000-000000000000:14 ClassName: RepositoryFactory MethodName: Reset Message: Entry
+2016-08-28 01:41:16,855 DEBUG - 00000000-0000-0000-0000-000000000000:14 ClassName: RepositoryFactory MethodName: Reset Message: Exit
+2016-08-28 01:41:18,968 DEBUG - 00000000-0000-0000-0000-000000000000:14 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 01:41:27,554 DEBUG - 00000000-0000-0000-0000-000000000000:14 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 01:51:39,539 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-28 01:51:39,548 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Entry
+2016-08-28 01:51:39,549 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Exit
+2016-08-28 01:51:50,608 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Reset Message: Entry
+2016-08-28 01:51:50,609 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Reset Message: Exit
+2016-08-28 01:51:52,815 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 01:51:53,371 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 01:55:52,127 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-28 01:55:52,134 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Entry
+2016-08-28 01:55:52,135 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Exit
+2016-08-28 01:56:11,669 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Reset Message: Entry
+2016-08-28 01:56:11,671 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Reset Message: Exit
+2016-08-28 01:56:17,208 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 01:56:22,836 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 02:07:58,611 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-28 02:08:02,171 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: AutoMapperConfiguration MethodName: Configure Message: Entry
+2016-08-28 02:08:02,172 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: AutoMapperConfiguration MethodName: Configure Message: Exit
+2016-08-28 02:08:04,125 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: RepositoryFactory MethodName: Reset Message: Entry
+2016-08-28 02:08:04,128 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: RepositoryFactory MethodName: Reset Message: Exit
+2016-08-28 02:08:06,356 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 02:08:07,285 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 02:08:18,282 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: AVD.DataAccessLayer.Repositories.Repository`1[[AVD.DataAccessLayer.Models.MD_EntityType, AVD.DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] MethodName: Repository Message: Creating repository Type=MD_EntityType, HasFilter=False, ThrowUnauthorizedOnMatchFail=False, AutoDetectChangesEnabled=True
+2016-08-28 02:08:24,201 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Exit
+2016-08-28 02:08:28,047 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Exit
+2016-08-28 02:08:31,578 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: AVD.DataAccessLayer.Repositories.Repository`1[[AVD.DataAccessLayer.Models.MD_EntityType, AVD.DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] MethodName: GetAll Message: Entry
+2016-08-28 02:08:33,067 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: AVD.DataAccessLayer.Repositories.Repository`1[[AVD.DataAccessLayer.Models.MD_EntityType, AVD.DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] MethodName: GetAll Message: Exit
+2016-08-28 02:08:43,124 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: QuoteManager MethodName: QuoteManager() Message: Exit
+2016-08-28 02:08:48,031 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-28 02:08:49,925 DEBUG - 00000000-0000-0000-0000-000000000000:11 ClassName: QuoteManager MethodName: QuoteManager() Message: Exit
+2016-08-28 02:09:36,538 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-28 02:09:36,546 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: AutoMapperConfiguration MethodName: Configure Message: Entry
+2016-08-28 02:09:36,546 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: AutoMapperConfiguration MethodName: Configure Message: Exit
+2016-08-28 02:09:38,635 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: RepositoryFactory MethodName: Reset Message: Entry
+2016-08-28 02:09:38,635 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: RepositoryFactory MethodName: Reset Message: Exit
+2016-08-28 02:09:38,635 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 02:09:38,636 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-28 02:09:45,654 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: AVD.DataAccessLayer.Repositories.Repository`1[[AVD.DataAccessLayer.Models.MD_EntityType, AVD.DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] MethodName: Repository Message: Creating repository Type=MD_EntityType, HasFilter=False, ThrowUnauthorizedOnMatchFail=False, AutoDetectChangesEnabled=True
+2016-08-28 02:09:49,300 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Exit
+2016-08-28 02:09:51,932 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Exit
+2016-08-28 02:09:54,583 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: AVD.DataAccessLayer.Repositories.Repository`1[[AVD.DataAccessLayer.Models.MD_EntityType, AVD.DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] MethodName: GetAll Message: Entry
+2016-08-28 02:09:55,090 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: AVD.DataAccessLayer.Repositories.Repository`1[[AVD.DataAccessLayer.Models.MD_EntityType, AVD.DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] MethodName: GetAll Message: Exit
+2016-08-28 02:10:05,487 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: QuoteManager MethodName: QuoteManager() Message: Exit
+2016-08-28 02:10:13,479 DEBUG - 00000000-0000-0000-0000-000000000000:10 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-29 21:00:21,976 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-29 21:00:22,481 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Entry
+2016-08-29 21:00:22,481 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AutoMapperConfiguration MethodName: Configure Message: Exit
+2016-08-29 21:00:23,093 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Reset Message: Entry
+2016-08-29 21:00:23,093 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Reset Message: Exit
+2016-08-29 21:00:23,093 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-29 21:00:23,093 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Entry
+2016-08-29 21:00:29,571 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AVD.DataAccessLayer.Repositories.Repository`1[[AVD.DataAccessLayer.Models.MD_EntityType, AVD.DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] MethodName: Repository Message: Creating repository Type=MD_EntityType, HasFilter=False, ThrowUnauthorizedOnMatchFail=False, AutoDetectChangesEnabled=True
+2016-08-29 21:00:33,334 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Exit
+2016-08-29 21:00:35,553 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: RepositoryFactory MethodName: Repository<MD_EntityType> Message: Exit
+2016-08-29 21:00:38,204 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AVD.DataAccessLayer.Repositories.Repository`1[[AVD.DataAccessLayer.Models.MD_EntityType, AVD.DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] MethodName: GetAll Message: Entry
+2016-08-29 21:00:39,661 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: AVD.DataAccessLayer.Repositories.Repository`1[[AVD.DataAccessLayer.Models.MD_EntityType, AVD.DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] MethodName: GetAll Message: Exit
+2016-08-29 21:00:47,492 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: QuoteManager MethodName: QuoteManager() Message: Exit
+2016-08-29 21:00:54,776 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: PlanningManager MethodName: PlanningManager() Message: Entry
+2016-08-29 21:00:58,753 DEBUG - 00000000-0000-0000-0000-000000000000:13 ClassName: QuoteManager MethodName: QuoteManager() Message: Exit

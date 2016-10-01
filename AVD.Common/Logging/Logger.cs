@@ -49,7 +49,7 @@ namespace AVD.Common.Logging
         {
             Log4NetLogger = LogManager.GetLogger(type);
 
-            // log4net.ElasticSearch is used indirectly by TE.Common library, but this project does not have any code that explicitly references log4net.ElasticSearch. 
+            // log4net.ElasticSearch is used indirectly by AVD.Common library, but this project does not have any code that explicitly references log4net.ElasticSearch. 
             // Therefore, when another project references this project, this project's assembly but not log4net.ElasticSearch. 
             // So in order to get the required log4net.ElasticSearch.dll copied over, we add some dummy code here (that never
             // gets called) that references log4net.ElasticSearch.dll; this will flag VS/MSBuild to copy the required log4net.ElasticSearch.dll over as well.

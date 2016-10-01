@@ -7,7 +7,7 @@ using AVD.DataAccessLayer.Models;
 
 namespace AVD.DataAccessLayer.Repositories
 {
-    public class EmrmRepository<TEntity> : Repository<TEntity> where TEntity : BaseModel
+    public class EmrmRepository<AVDntity> : Repository<AVDntity> where AVDntity : BaseModel
     {
         internal BaseSystemContext EmrmContext => DbContext as BaseSystemContext;
     }
